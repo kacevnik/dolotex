@@ -1,132 +1,132 @@
 @font-face{
-	font-family: 'Museo100';
-	src: url(../font/MuseoSansCyrl100.ttf);
+    font-family: 'Museo100';
+    src: url(../font/MuseoSansCyrl100.ttf);
 }
 
 @font-face{
-	font-family: 'Museo300';
-	src: url(../font/MuseoSansCyrl300.ttf);
+    font-family: 'Museo300';
+    src: url(../font/MuseoSansCyrl300.ttf);
 }
 
 @font-face{
-	font-family: 'Museo500';
-	src: url(../font/MuseoSansCyrl500.ttf);
+    font-family: 'Museo500';
+    src: url(../font/MuseoSansCyrl500.ttf);
 }
 
 @font-face{
-	font-family: 'Museo700';
-	src: url(../font/MuseoSansCyrl700.ttf);
+    font-family: 'Museo700';
+    src: url(../font/MuseoSansCyrl700.ttf);
 }
 
 @font-face{
-	font-family: 'Museo900';
-	src: url(../font/MuseoSansCyrl900.ttf);
+    font-family: 'Museo900';
+    src: url(../font/MuseoSansCyrl900.ttf);
 }
 
 body{
-	font-family: 'Museo100';
-	font-size: 16px;
-	color: #000000;
-	background: #ffffff;
+    font-family: 'Museo100';
+    font-size: 16px;
+    color: #000000;
+    background: #ffffff;
 }
 
 .header_top{
-	border-bottom: 1px solid #d7d7d7;
-	min-height: 65px;
-	padding: 8px 0 0 0;
+    border-bottom: 1px solid #d7d7d7;
+    min-height: 65px;
+    padding: 8px 0 0 0;
 }
 
 .main_menu{
-	list-style: none;
-	padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .main_menu li{
-	float: left;
-	width: 20%;
-	text-align: center;
+    float: left;
+    width: 20%;
+    text-align: center;
 }
 
 .main_menu li a{
-	position: relative;
-	font-size: 20px;
-	color: #000000;
+    position: relative;
+    font-size: 20px;
+    color: #000000;
 }
 
 .main_menu li.activ a:before{
-	content: "";
-	position: absolute;
-	left: 0;
-	top: -20px;
-	width: 100%;
-	height: 6px;
-	background: #bc0000;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -20px;
+    width: 100%;
+    height: 6px;
+    background: #bc0000;
 }
 
 .main_menu li a:before{
-	content: "";
-	position: absolute;
-	left: 0;
-	top: -20px;
-	width: 0;
-	height: 6px;
-	background: #bc0000;
-	transition: width 0.4s cubic-bezier(.47,-.41,.19,1.44);
-	-o-transition: width 0.4s cubic-bezier(.47,-.41,.19,1.44);
-	-moz-transition: width 0.4s cubic-bezier(.47,-.41,.19,1.44);
-	-webkit-transition: width 0.4s cubic-bezier(.47,-.41,.19,1.44);
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -20px;
+    width: 0;
+    height: 6px;
+    background: #bc0000;
+    transition: width 0.4s cubic-bezier(.47,-.41,.19,1.44);
+    -o-transition: width 0.4s cubic-bezier(.47,-.41,.19,1.44);
+    -moz-transition: width 0.4s cubic-bezier(.47,-.41,.19,1.44);
+    -webkit-transition: width 0.4s cubic-bezier(.47,-.41,.19,1.44);
 
 }
 
 .main_menu li:hover a:before{
-	width: 100%;
+    width: 100%;
 }
 
 .main_menu li a:hover{
-	text-decoration: none;
-	color: #262626;
+    text-decoration: none;
+    color: #262626;
 }
 
 .header_bottom{
-	min-height: 105px;
+    min-height: 105px;
 }
 
 .logo{
-	font-family: 'Museo300';
-	font-size: 18px;
-	margin: 30px 0 0 0;
+    font-family: 'Museo300';
+    font-size: 18px;
+    margin: 30px 0 0 0;
 }
 
 .logo a{
-	margin: 0 20px 0 0;
+    margin: 0 20px 0 0;
 }
 
 .logo a:hover{
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .phone{
-	width: 50%;
-	float: left;
-	text-align: center;
-	padding: 23px 0 0 0;
+    width: 50%;
+    float: left;
+    text-align: center;
+    padding: 23px 0 0 0;
 }
 
 .phone_number{
-	font-size: 30px;
-	font-family: 'Museo300';
+    font-size: 30px;
+    font-family: 'Museo300';
 }
 
 .phone_text{
-	font-size: 14px;
-	color: #737373;
-	line-height: 0.4;
+    font-size: 14px;
+    color: #737373;
+    line-height: 0.4;
 }
 
 .call_back{
-	width: 50%;
-	float: left;
-	text-align: center;
+    width: 50%;
+    float: left;
+    text-align: center;
 }
 
 .call_back a{
@@ -136,34 +136,30 @@ body{
 }
 
 .btn{
-	background: #bc0000;
-	color: #ffffff;
-	font-family: 'Museo500';
-	border-radius: 5px;
-	-o-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+    background: #bc0000;
+    color: #ffffff;
+    font-family: 'Museo500';
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 .btn:hover{
-	background: #d20404;
-	cursor: pointer;
-	color: #ffffff;
-	box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.35);
-	-o-box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.35);
-	-moz-box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.35);
-	-webkit-box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.35);
+    background: #d20404;
+    cursor: pointer;
+    color: #ffffff;
+    box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.35);
+    -o-box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.35);
 }
 
-
-
-
-
-
-
-
-
-
+.bar_hamburger{
+    display: none;
+    position: absolute;
+    left: 10px;
+}
 
 
 
