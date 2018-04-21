@@ -30,6 +30,33 @@ body{
     background: #ffffff;
 }
 
+h1{
+    font-size: 44px;
+    font-family: 'Museo700';
+}
+
+h2{
+    font-size: 34px;
+    font-family: 'Museo700';
+    text-align: center;
+}
+
+.pt_55{
+    padding-top: 55px;
+}
+
+.pt_90{
+    padding-top: 90px;
+}
+
+.pb_65{
+    padding-bottom: 65px;
+}
+
+.pb_90{
+    padding-bottom: 90px;
+}
+
 .header_top{
     border-bottom: 1px solid #d7d7d7;
     min-height: 65px;
@@ -155,10 +182,154 @@ body{
     -webkit-box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.35);
 }
 
-.bar_hamburger{
+.hamburger_wraper{
     display: none;
+}
+
+#main{
+    background: #747474 url('../img/main_bg_1.png')no-repeat center;
+    color: #ffffff;
+}
+
+#main h1 span{
+    background: #bc0000;
+    padding: 0 15px;
+}
+
+.main_top ul{
+    font-size: 22px;
+    font-family: 'Museo300';
+    list-style: none;
+    padding: 0;
+    margin: 60px 0 65px 0;
+    line-height: 1.8;
+}
+
+.main_top ul i{
+    color: #bc0000;
+    margin: 0 15px 0 0;
+}
+
+.main_bottom{
+    background: url('../img/main_bg_2.png')repeat-y center;
+    padding: 30px 0;
+    font-size: 20px;
+    font-family: 'Museo700';
+}
+
+.main_bottom_img{
     position: absolute;
-    left: 10px;
+    top: -276px;
+    left: -100px;
+}
+
+.main_bottom_btn .btn{
+    font-size: 20px;
+    font-family: 'Museo700';
+    padding: 10px 25px;
+}
+
+#objects{
+    border: 1px solid #d5d5d5;
+    background: #ffffff;
+}
+
+#objects .sub_title{
+    font-size: 22px;
+    text-align: center;
+    margin: 0 0 45px 0;
+}
+
+.obj_item{
+    color: #000;
+    display: block;
+    text-align: center;
+    border-radius: 8px;
+    -o-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    padding: 34px 15px 0 15px;
+    min-height: 212px;
+    margin-bottom: 30px;
+}
+
+.obj_item:hover{
+    background: #f9f9f9;
+    text-decoration: none;
+    color: #000000;
+}
+
+.obj_item_title{
+    margin: 10px 0 0 0;
+}
+
+.obj_check_item{
+    overflow: hidden;
+    margin-bottom: 45px;
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.obj_check_item_content{
+    width: 42%;
+}
+
+.obj_check_item.odd .obj_check_item_content, .obj_check_item.odd .obj_check_item_img{
+    float: left;
+}
+
+.obj_check_item.even .obj_check_item_content, .obj_check_item.even .obj_check_item_img{
+    float: right;
+}
+
+.obj_check_item_img{
+    width: 58%;
+}
+
+.obj_check_item_img img{
+    width: 100%;
+}
+
+.obj_check_item_content{
+    padding: 45px;
+}
+
+.obj_check_item_title{
+    font-size: 30px;
+    margin: 0 0 25px 0;
+}
+
+.obj_check_item_text{
+    margin: 0 0 25px 0;
+}
+
+.obj_check_item_sq{
+    font-size: 18px;
+    margin: 0 0 25px 0;
+}
+
+.obj_check_item_btn .btn{
+    font-size: 22px;
+    font-family: 'Museo500';
+    padding: 15px 35px;
+}
+
+.obj_check_item_sq i{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d8d8d8;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 39px;
+    margin-right: 15px;
+}
+
+.obj_check_item_btn i{
+    margin-right: 15px;
+    font-size: 28px;
 }
 
 

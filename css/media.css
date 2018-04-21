@@ -1,23 +1,90 @@
-@media (max-width: 992px){
+@media (max-width: 991px){
 	.main_menu{
 		display: none;
 	}
 
-	.bar_hamburger{
+	.logo{
+		text-align: center;
+	}
+
+	.hamburger_wraper{
 		display: inline-block;
 	}
 
-	.logo {
-	    text-align: center;
+	header{
+		padding-bottom: 55px;
+	}
+
+	.main_bottom_img{
+		display: none;
+	}
+
+	#main h1{
+		text-align: center;
+	}
+
+	.obj_check_item_img {
+	    width: 100%;
+	}	
+
+	.obj_check_item_content {
+	    width: 100%;
+	}
+
+	.obj_check_item.even .obj_check_item_img,  .obj_check_item.even .obj_check_item_content, .obj_check_item.odd .obj_check_item_img, .obj_check_item.odd .obj_check_item_content{
+    	float: none
+	}
+}
+
+
+@media (max-width: 767px){
+	.main_bottom{
+		text-align: center;
+	}
+
+	.main_bottom_text{
+		margin-bottom: 15px;
+	}
+
+	#main h1{
+		font-size: 32px;
 	}
 }
 
 @media (max-width: 500px){
+	.phone{
+		width: 100%;
+	}
+
 	.call_back{
 		width: 100%;
 	}
 
-	.phone{
-		width: 100%;
+	#main h1{
+		font-size: 24px;
+	}
+
+	.main_top ul{
+		font-size: 14px;
+	}
+
+	.obj_check_item_btn{
+		text-align: center;
+	}
+
+	.obj_check_item_btn .btn{
+		font-size: 18px;
+	}
+
+	.obj_check_item_title{
+		text-align: center;
+	}
+
+	.obj_check_item_content{
+		padding: 20px;
 	}
 }
+
+
+
+
