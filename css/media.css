@@ -23,16 +23,21 @@
 		text-align: center;
 	}
 
-	.obj_check_item_img {
-	    width: 100%;
-	}	
-
-	.obj_check_item_content {
-	    width: 100%;
+	.obj_check_item_img{
+		width: 100%
 	}
 
-	.obj_check_item.even .obj_check_item_img,  .obj_check_item.even .obj_check_item_content, .obj_check_item.odd .obj_check_item_img, .obj_check_item.odd .obj_check_item_content{
-    	float: none
+	.obj_check_item_content{
+		width: 100%;
+		padding: 40px;
+	}
+
+	#sale{
+		background-size: cover;
+	}
+
+	.sale_text ul{
+	    margin-bottom: 55px;
 	}
 }
 
@@ -68,20 +73,30 @@
 		font-size: 14px;
 	}
 
+	.obj_check_item_content h5{
+		text-align: center;
+	}
+
 	.obj_check_item_btn{
 		text-align: center;
 	}
 
-	.obj_check_item_btn .btn{
-		font-size: 18px;
+	.obj_check_item_content {
+	    padding: 25px;
 	}
 
-	.obj_check_item_title{
-		text-align: center;
+	.sale_text ul i {
+	    width: 40px;
+	    height: 40px;
+	    line-height: 40px;
 	}
 
-	.obj_check_item_content{
-		padding: 20px;
+	.sale_text ul {
+	    font-size: 16px;
+	}
+
+	.bonus .sub_title {
+	    font-size: 20px;
 	}
 }
 

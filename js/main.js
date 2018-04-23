@@ -5,6 +5,8 @@
          }
       });
 
+      $('[name="phone"]').inputmask("+380 (99) 99 99 999");
+
        var api = $("#mmenu").data( "mmenu" );
        api.bind('open:finish', function() {
           $('.hamburger').addClass('is-active');

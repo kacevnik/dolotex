@@ -36,9 +36,9 @@ h1{
 }
 
 h2{
+    text-align: center;
     font-size: 34px;
     font-family: 'Museo700';
-    text-align: center;
 }
 
 .pt_55{
@@ -230,58 +230,50 @@ h2{
 }
 
 #objects{
-    border: 1px solid #d5d5d5;
-    background: #ffffff;
+    border-bottom: 1px solid #d5d5d5;
 }
 
 #objects .sub_title{
-    font-size: 22px;
     text-align: center;
-    margin: 0 0 45px 0;
+    font-size: 22px;
+    margin: 0 0 55px 0;
 }
 
 .obj_item{
-    color: #000;
-    display: block;
     text-align: center;
-    border-radius: 8px;
-    -o-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    padding: 34px 15px 0 15px;
-    min-height: 212px;
-    margin-bottom: 30px;
-}
-
-.obj_item:hover{
-    background: #f9f9f9;
-    text-decoration: none;
-    color: #000000;
-}
-
-.obj_item_title{
-    margin: 10px 0 0 0;
-}
-
-.obj_check_item{
-    overflow: hidden;
-    margin-bottom: 45px;
-    border: 1px solid #d5d5d5;
     border-radius: 5px;
     -o-border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    min-height: 211px;
+    padding: 30px 15px;
+    color: #000000;
+    display: block;
+    line-height: 1;
+    margin-bottom: 30px;
 }
 
-.obj_check_item_content{
-    width: 42%;
+.obj_item:hover{
+    text-decoration: none;
+    background: #f9f9f9;
 }
 
-.obj_check_item.odd .obj_check_item_content, .obj_check_item.odd .obj_check_item_img{
+.obj_item_img{
+    margin-bottom: 10px;
+}
+
+.obj_check_item{
+    border: 1px solid #d5d5d5;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.obj_check_item.odd .obj_check_item_img, .obj_check_item.odd .obj_check_item_content{
     float: left;
 }
 
-.obj_check_item.even .obj_check_item_content, .obj_check_item.even .obj_check_item_img{
+.obj_check_item.even .obj_check_item_img, .obj_check_item.even .obj_check_item_content{
     float: right;
 }
 
@@ -294,43 +286,161 @@ h2{
 }
 
 .obj_check_item_content{
+    width: 42%;
     padding: 45px;
 }
 
-.obj_check_item_title{
+.obj_check_item_content h5{
     font-size: 30px;
-    margin: 0 0 25px 0;
+    font-family: 'Museo100';
+    margin-bottom: 25px;
 }
 
-.obj_check_item_text{
-    margin: 0 0 25px 0;
+.obj_check_item_content p{
+    margin-bottom: 25px;
 }
 
-.obj_check_item_sq{
-    font-size: 18px;
-    margin: 0 0 25px 0;
+.obj_check_item_content span{
+    margin-bottom: 25px;
+    display: block;
 }
 
-.obj_check_item_btn .btn{
-    font-size: 22px;
-    font-family: 'Museo500';
-    padding: 15px 35px;
-}
-
-.obj_check_item_sq i{
+.obj_check_item_content span i{
     width: 40px;
     height: 40px;
-    border: 1px solid #d8d8d8;
+    border: 1px solid #e3e3e3;
     border-radius: 50%;
     text-align: center;
     line-height: 39px;
     margin-right: 15px;
 }
 
-.obj_check_item_btn i{
-    margin-right: 15px;
-    font-size: 28px;
+.obj_check_item_btn .btn{
+    font-size: 20px;
+    padding: 15px 30px;
 }
+
+.obj_check_item_btn .btn i{
+    margin-right: 15px;
+}
+
+#sale{
+    background: url(../img/sale_bg.png)no-repeat center bottom;
+}
+
+.bonus h2{
+    color: #ffffff;
+}
+
+.bonus h2 span{
+    background: #bc0000;
+    padding: 5px 17px;
+}
+
+.bonus .sub_title{
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Museo300';
+    margin: 0 0 60px 0;
+}
+
+.bonus .sub_title span{
+    background: #bc0000;
+    padding: 6px 10px;
+}
+
+.sale_text ul{
+    color: #ffffff;
+    list-style: none;
+    padding: 0;
+    font-size: 24px;
+}
+
+.sale_text ul i{
+    background: #ffffff;
+    color: #bc0000;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    -o-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    line-height: 64px;
+    margin: 0 20px 20px 0;
+}
+
+.form{
+    background: #ffffff;
+    border-radius: 6px;
+    text-align: center;
+    padding: 35px;
+}
+
+.form h3{
+    color: #bc0000;
+    font-size: 24px;
+    font-family: 'Museo700';
+    margin-bottom: 25px;
+}
+
+.form p{
+    margin-bottom: 25px;
+}
+
+.form .form_input{
+    width: 100%;
+    overflow: hidden;
+    background: #f9f9f9;
+    border-radius: 25px;
+    -o-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.form .form_input_icon{
+    width: 20%;
+    float: left;
+    text-align: center;
+}
+
+.form .form_input_icon i{
+    color: #bc0000;
+    line-height: 50px;
+}
+
+.form .form_input_text{
+    float: left;
+    width: 80%;
+    padding: 16px 0 0 0;
+}
+
+.form .form_input_text input{
+    width: 100%;
+    background: #f9f9f9;
+    border: none;
+}
+
+.form_btn .btn{
+    font-size: 20px;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+.form .form_input_text input, .form .form_input_text input:active, .form .form_input_text input:focus{
+    outline: none;
+}
+
+
+
+
+
+
+
 
 
 
