@@ -435,6 +435,37 @@ h2{
     outline: none;
 }
 
+#clients{
+    background: #ffffff;
+}
+
+.clients_item{
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+    margin: 0 0 50px 0;
+}
+
+.clients_item_img img{
+    width: 100%;
+}
+
+.clients_item_title{
+    padding: 30px;
+}
+
+.clients_item_title h6{
+    font-size: 22px;
+    font-family: 'Museo500';
+}
+
+.clients_item_title p{
+    font-size: 20px;
+}
+
+.clients_item_title p i{
+    margin-right: 15px;
+}
+
 
 
 
