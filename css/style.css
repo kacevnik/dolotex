@@ -156,6 +156,11 @@ h2{
     text-align: center;
 }
 
+.call_back .btn:active, .call_back .btn:focus{
+    outline: none;
+    color: #ffffff;
+}
+
 .call_back a{
     font-size: 18px;
     margin: 30px 0 0 0;
@@ -500,6 +505,18 @@ h2{
     left: -57px;
 }
 
+.com_slider .owl-nav button.owl-prev{
+    top: 50%;
+    margin-top: -25px;
+    left: -62px;
+}
+
+.com_slider .owl-nav button.owl-next{
+    top: 50%;
+    margin: -25px;
+    right: -37px;
+}
+
 .client_slider .owl-nav button.owl-next{
     top: 12px;
     right: -63px;
@@ -508,6 +525,136 @@ h2{
 .owl-carousel .owl-nav button.owl-prev:focus, .owl-carousel .owl-nav button.owl-next:focus{
     outline: none;
 }
+
+#com_slider h2{
+    margin: 0 0 80px 0;
+}
+
+.com_slider_item{
+    border: 10px solid #bc0000;
+    padding: 35px;
+    overflow: hidden;
+    min-height: 262px;
+}
+
+.com_slider_item_img{
+    width: 25%;
+    float: left;
+    padding-right: 35px;
+}
+
+.com_slider_item_img img{
+    border-radius: 50%;
+    -o-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    width: 80px;
+}
+
+.com_slider_item_text{
+    width: 75%;
+    float: left;
+    font-size: 14px;
+}
+
+.com_slider_item_text h6{
+    font-size: 20px;
+    font-family: 'Museo700';
+}
+
+#bonus{
+    background: url('../img/bonus_bg.png')no-repeat center bottom;
+}
+
+#bonus h2{
+    margin: 0 0 80px 0;
+}
+
+.sale_text p{
+    color: #ffffff;
+    font-size: 24px;
+    font-family: 'Museo700';
+    margin: 0 0 50px 0;
+}
+
+.sale_text p span{
+    font-family: 'Museo100';
+}
+
+footer{
+    padding: 45px 0 70px 0;
+}
+
+footer h3{
+    font-size: 22px;
+    font-family: 'Museo100';
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+footer ul{
+    padding: 0;
+    list-style: none;
+    line-height: 1.7;
+}
+
+footer ul a{
+    color: #000000;
+}
+
+footer ul a:hover{
+    color: #000000;
+}
+
+footer .hot_phone{
+    font-size: 22px;
+}
+
+.social_menu{
+    list-style: none;
+    overflow: hidden;
+}
+
+.social_menu li{
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.social_menu li a{
+    background: #e0e0e0;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 26px;
+    border-radius: 50%;
+    -o-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    line-height: 53px;
+}
+
+.social_menu li a:hover{
+    background: #bc0000;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.social_menu li:last-child{
+    margin: 0;
+}
+
+.footer_cil{
+    margin: 0 0 30px 0;
+}
+
+#call_back_hidden{
+    display: none;
+    max-width: 400px;
+}
+
+#catalog{}
 
 
 

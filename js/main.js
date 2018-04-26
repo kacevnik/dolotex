@@ -31,7 +31,33 @@
           navText: ['<i class="fas fa-angle-left"></i>','<i class="fas fa-angle-right"></i>'],
           autoplay: true,
           autoplayTimeout: 5000
+      });      
+
+      $(".com_slider").owlCarousel({
+          loop:true,
+          margin: 30,
+          responsive:{
+              0:{
+                  items:1,
+                  nav:true
+              },
+              500:{
+                  items:1,
+                  nav:true
+              },
+              767:{
+                  items:2,
+                  nav:true
+              },
+              992:{
+                  items:2,
+                  nav:true
+              }
+          },
+          navText: ['<i class="fas fa-angle-left"></i>','<i class="fas fa-angle-right"></i>']
       });
+
+      $('[data-fancybox]').fancybox();
 
       var api = $("#mmenu").data( "mmenu" );
       api.bind('open:finish', function() {

@@ -34,10 +34,30 @@
 
 	#sale{
 		background-size: cover;
+	}	
+
+	#bonus{
+		background-size: cover;
 	}
 
 	.sale_text ul{
 	    margin-bottom: 55px;
+	}
+}
+
+@media (max-width: 860px){
+	.client_slider .owl-nav button.owl-prev, .com_slider .owl-nav button.owl-prev{
+		top: 100%;
+	    margin-top: 0;
+	    left: 50%;
+	    margin-left: -65px;
+	}	
+
+	.client_slider .owl-nav button.owl-next, .com_slider .owl-nav button.owl-next{
+		top: 100%;
+	    margin-top: 0;
+	    right: 50%;
+	    margin-right: -65px;
 	}
 }
 
@@ -97,6 +117,20 @@
 
 	.bonus .sub_title {
 	    font-size: 20px;
+	}
+
+	.com_slider_item_img{
+		width: 75%;
+	    float: none;
+	    text-align: center;
+	    padding: 0;
+	    margin: 0 auto;
+	    margin-bottom: 35px;
+	}
+
+	.com_slider_item_text{
+		width: 100%;
+    	float: none;
 	}
 }
 
