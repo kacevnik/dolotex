@@ -435,35 +435,78 @@ h2{
     outline: none;
 }
 
+
 #clients{
     background: #ffffff;
 }
 
+#clients h2{
+    margin: 0 0 65px 0;
+}
+
 .clients_item{
     border: 1px solid #d5d5d5;
-    border-radius: 5px;
-    margin: 0 0 50px 0;
+    border-radius: 6px;
+    -o-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 30px;
 }
 
 .clients_item_img img{
     width: 100%;
 }
 
-.clients_item_title{
-    padding: 30px;
+.clients_item_content{
+    padding: 35px;
 }
 
-.clients_item_title h6{
-    font-size: 22px;
+.clients_item_content h6{
+    font-size: 24px;
     font-family: 'Museo500';
 }
 
-.clients_item_title p{
-    font-size: 20px;
+.clients_item_content p i{
+    margin: 0 15px 0 0;
 }
 
-.clients_item_title p i{
-    margin-right: 15px;
+#client_slider{
+    background: #f9f9f9;
+}
+
+#client_slider h2{
+    font-family: 'Museo100';
+    margin: 0 0 65px 0;
+}
+
+.owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next{
+    background: #f0f0f0;
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+}
+
+.owl-carousel .owl-nav button.owl-prev:hover, .owl-carousel .owl-nav button.owl-next:hover{
+    background: #bc0000;
+}
+
+.client_slider .owl-nav button.owl-prev{
+    top: 12px;
+    left: -57px;
+}
+
+.client_slider .owl-nav button.owl-next{
+    top: 12px;
+    right: -63px;
+}
+
+.owl-carousel .owl-nav button.owl-prev:focus, .owl-carousel .owl-nav button.owl-next:focus{
+    outline: none;
 }
 
 

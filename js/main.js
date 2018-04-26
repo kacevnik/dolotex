@@ -7,10 +7,36 @@
 
       $('[name="phone"]').inputmask("+380 (99) 99 99 999");
 
-       var api = $("#mmenu").data( "mmenu" );
-       api.bind('open:finish', function() {
-          $('.hamburger').addClass('is-active');
-       }).bind('close:finish', function(){
-            $('.hamburger').removeClass('is-active');
-          });
+      $(".client_slider").owlCarousel({
+          loop:true,
+          margin: 30,
+          responsive:{
+              0:{
+                  items:1,
+                  nav:true
+              },
+              500:{
+               items:2,
+               nav:true
+              },
+              767:{
+                  items:3,
+                  nav:true
+              },
+              992:{
+                  items:4,
+                  nav:true
+              }
+          },
+          navText: ['<i class="fas fa-angle-left"></i>','<i class="fas fa-angle-right"></i>'],
+          autoplay: true,
+          autoplayTimeout: 5000
+      });
+
+      var api = $("#mmenu").data( "mmenu" );
+      api.bind('open:finish', function() {
+         $('.hamburger').addClass('is-active');
+      }).bind('close:finish', function(){
+         $('.hamburger').removeClass('is-active');
+      });
    });
