@@ -136,6 +136,26 @@
 		width: 100%;
     	float: none;
 	}
+
+	.product_more_slider_wrap .owl-nav {
+		position: unset;
+	    top: 0;
+	    right: 0;
+	    background: transparent;
+	    width: 0;
+	    height: 0;
+	    padding-left: 0;
+	}
+
+	.product_more_slider_wrap .owl-nav button.owl-prev{
+		left: 50%;
+    	margin-left: -55px;
+	}	
+
+	.product_more_slider_wrap .owl-nav button.owl-next{
+	    right: 50%;
+	    margin-right: -55px;
+	}
 }
 
 

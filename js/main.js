@@ -13,6 +13,12 @@
          return false;
       });
 
+      $('.product_tabs a').click(function() {
+         $('.product_tab_content').hide();
+         $('#product_tab_' + $(this).attr('product-data-tab')).fadeIn(500);
+         return false;
+      });
+
       $('.catalog_item_cart').click(function(){
          $('[name="name_product"]').val($(this).parent().parent().find('[data-name-product]').html());
       });
@@ -33,6 +39,32 @@
               },
               767:{
                   items:3,
+                  nav:true
+              },
+              992:{
+                  items:4,
+                  nav:true
+              }
+          },
+          navText: ['<i class="fas fa-angle-left"></i>','<i class="fas fa-angle-right"></i>'],
+          autoplay: true,
+          autoplayTimeout: 5000
+      });       
+
+      $(".product_more_slider_wrap").owlCarousel({
+          loop:true,
+          margin: 30,
+          responsive:{
+              0:{
+                  items:1,
+                  nav:true
+              },
+              500:{
+               items:2,
+               nav:true
+              },
+              767:{
+                  items:4,
                   nav:true
               },
               992:{
