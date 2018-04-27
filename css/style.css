@@ -788,6 +788,41 @@ footer .hot_phone{
     margin: 0 15px 0 0;
 }
 
+#catalog_download{
+    border-bottom: 1px solid #d7d7d7;
+}
+
+#catalog_download .btn{
+    margin: 0;
+}
+
+#catalog_download .btn i{
+    margin: 0 15px 0 0;
+}
+
+#catalog_download .pnone_text{
+    font-size: 26px;
+    font-family: 'Museo300';
+    text-align: right;
+}
+
+#catalog_download .number_phone{
+    font-size: 26px;
+    text-align: left;
+    font-family: 'Museo700';
+}
+
+#catalog_download .number_phone i{
+    color: #bc0000;
+    margin: 0 15px 0 0;
+}
+
+#catalog_download .phone{
+    padding: 0 0 0 44px;
+    width: 100%;
+    text-align: left;
+}
+
 
 
 

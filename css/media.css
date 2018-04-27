@@ -43,6 +43,10 @@
 	.sale_text ul{
 	    margin-bottom: 55px;
 	}
+
+	#catalog_download .phone, #catalog_download .number_phone, #catalog_download .pnone_text{
+		text-align: center;
+	}
 }
 
 @media (max-width: 860px){
