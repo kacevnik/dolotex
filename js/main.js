@@ -102,6 +102,7 @@
       });
 
       $('[data-fancybox]').fancybox();
+      $('[data-fancybox-video]').fancybox();
 
       var api = $("#mmenu").data( "mmenu" );
       api.bind('open:finish', function() {
