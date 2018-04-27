@@ -256,12 +256,34 @@ h2{
     display: block;
     line-height: 1;
     margin-bottom: 30px;
+    position: relative;
 }
 
-.obj_item:hover{
+.obj_item i{
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    font-size: 26px;
+    color: #1cca00;
+    display: none;
+}
+
+.obj_item.active i{
+    display: inline-block;
+}
+
+.obj_item:hover, .obj_item:focus, .obj_item:active{
     text-decoration: none;
     background: #f9f9f9;
+    color: #000000;
 }
+
+.obj_item.active{
+    text-decoration: none;
+    background: #f9f9f9;
+    color: #000000;
+}
+
 
 .obj_item_img{
     margin-bottom: 10px;
@@ -272,6 +294,10 @@ h2{
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 30px;
+}
+
+.object_check_tab{
+    display: none;
 }
 
 .obj_check_item.odd .obj_check_item_img, .obj_check_item.odd .obj_check_item_content{

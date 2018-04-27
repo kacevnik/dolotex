@@ -5,6 +5,14 @@
          }
       });
 
+      $('.obj_item').click(function(){
+         $('.object_check_tab').hide();
+         $('.obj_item').removeClass('active');
+         $('#tab_object_check_' + $(this).attr('data-tab')).fadeIn(500);
+         $(this).addClass('active');
+         return false;
+      });
+
       $('.catalog_item_cart').click(function(){
          $('[name="name_product"]').val($(this).parent().parent().find('[data-name-product]').html());
       });
