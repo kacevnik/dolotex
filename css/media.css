@@ -51,6 +51,14 @@
 	#product_answ{
 		background-size: cover;
 	}
+
+	#dilers{
+		text-align: center;
+	}
+
+	.dilers_img{
+		display: none;
+	}
 }
 
 @media (max-width: 860px){

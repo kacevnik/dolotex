@@ -41,6 +41,22 @@ h2{
     font-family: 'Museo700';
 }
 
+.bold_300{
+    font-family: "Museo300";
+}
+
+.bold_500{
+    font-family: "Museo500";
+}
+
+.bold_700{
+    font-family: "Museo700";
+}
+
+.bold_900{
+    font-family: "Museo900";
+}
+
 .pt_55{
     padding-top: 55px;
 }
@@ -1086,6 +1102,43 @@ footer .hot_phone{
 #product_answ .article_phone_text{
     color: #ffffff;
     margin: 40px 0 0 0;
+}
+
+#dilers{
+    padding: 90px 0 90px 0;
+    background: url(../img/dilers_bg.png) center top;
+    background-size: cover;
+}
+
+#dilers h1{
+    font-size: 48px;
+    color: #000000;
+    margin: 0;
+}
+
+#dilers h3{
+    font-size: 48px;
+    color: #bc0000;
+    margin: 0;
+}
+
+.dilers_text{
+    font-size: 30px;
+    color: #000000;
+    padding: 50px 0;
+}
+
+.dilers_btn .btn{
+    font-size: 24px;
+    padding: 15px 25px;
+}
+
+.dilers_btn .btn i{
+    margin-right: 20px;
+}
+
+.dilers_img img{
+    width: 100%;
 }
 
 
