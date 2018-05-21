@@ -56,7 +56,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="phone">
+                <div class="phone_header">
                   <div class="phone_number"><?php echo $kdv_phone_header; ?></div>
                   <div class="phone_text"><?php echo $kdv_phone_header2; ?></div>
                 </div>

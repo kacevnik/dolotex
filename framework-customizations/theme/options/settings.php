@@ -24,6 +24,26 @@
     foreach ($category_list as $category_listt_item) {
         $res_category_list[$category_listt_item->term_id] = $category_listt_item->name;
     }
+
+    $args = array(
+        'numberposts' => -1,
+        'category'    => 0,
+        'orderby'     => 'date',
+        'order'       => 'DESC',
+        'include'     => array(),
+        'exclude'     => array(),
+        'meta_key'    => '',
+        'meta_value'  =>'',
+        'post_type'   => 'wpcf7_contact_form',
+        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+    );
+
+    $posts = get_posts( $args );
+
+    foreach ($posts as $posts_item) {
+        $posts_cf_7['[contact-form-7 id="'.$posts_item->ID.'" title="'.$posts_item->post_title.'"]'] = $posts_item->post_title;
+    }
+
 //настройки для страницы настроек темы
     $options = array(
         'kdv_tap_general_opions' => array(
@@ -76,6 +96,21 @@
                      * the array with the next structure array( '.rar, rar' ) and it will solve the problem.
                      */
                     'extra_mime_types' => array( 'audio/x-aiff, aif aiff' )
+                ),
+
+                'kdv_call_back_form' => array(
+                    'type'  => 'select',
+                    'value' => 'choice-3',
+                    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+                    'label' => __('Форма обратного звонка', '{domain}'),
+                    'desc'  => __('Выбирите форму обратного звонка', '{domain}'),
+                    'help'  => __('Выбирите форму обратного звонка плагина Contact Form 7', '{domain}'),
+                    'choices' => $posts_cf_7,
+                    /**
+                     * Allow save not existing choices
+                     * Useful when you use the select to populate it dynamically from js
+                     */
+                    'no-validate' => false,
                 )
             ),
             'title' => __('Настройки главной', '{domain}'),
