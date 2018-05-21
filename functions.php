@@ -1,7 +1,7 @@
 <?php
 include('settings.php');
 register_nav_menus(array( // Регистрация меню
-    'top' => 'Верхнее',
+    'top' => 'Главное меню',
     'bottom' => 'Внизу'
 ));
 
