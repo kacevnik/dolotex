@@ -2,7 +2,6 @@
 include('settings.php');
 register_nav_menus(array( // Регистрация меню
     'top' => 'Главное меню',
-    'bottom' => 'Внизу'
 ));
 
 add_theme_support('post-thumbnails'); // Включение миниатюр
@@ -10,13 +9,43 @@ set_post_thumbnail_size(250, 150); // Размер миниатюр 250x150
 add_image_size('big-thumb', 400, 400, true); // Ещё один размер миниатюры
 
 register_sidebar(array(
-    'name' => 'Колонка слева', // Название сайдбара
-    'id' => "left-sidebar", // Идентификатор
-    'description' => 'Обычная колонка в сайдбаре',
+    'name' => 'Виджет Футер №1', // Название сайдбара
+    'id' => "footer_1", // Идентификатор
+    'description' => 'Область для футера №1',
     'before_widget' => '<div id="%1$s" class="widget %2$s">', // До виджета
     'after_widget' => "</div>\n", // После виджета
-    'before_title' => '<span class="widgettitle">', //  До заголовка виджета
-    'after_title' => "</span>\n", //  После заголовка виджета
+    'before_title' => '<h3>', //  До заголовка виджета
+    'after_title' => "</h3>\n", //  После заголовка виджета
+));
+
+register_sidebar(array(
+    'name' => 'Виджет Футер №2', // Название сайдбара
+    'id' => "footer_2", // Идентификатор
+    'description' => 'Область для футера №2',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">', // До виджета
+    'after_widget' => "</div>\n", // После виджета
+    'before_title' => '<h3>', //  До заголовка виджета
+    'after_title' => "</h3>\n", //  После заголовка виджета
+));
+
+register_sidebar(array(
+    'name' => 'Виджет Футер №3', // Название сайдбара
+    'id' => "footer_3", // Идентификатор
+    'description' => 'Область для футера №3',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">', // До виджета
+    'after_widget' => "</div>\n", // После виджета
+    'before_title' => '<h3>', //  До заголовка виджета
+    'after_title' => "</h3>\n", //  После заголовка виджета
+));
+
+register_sidebar(array(
+    'name' => 'Виджет Футер №4', // Название сайдбара
+    'id' => "footer_4", // Идентификатор
+    'description' => 'Область для футера №4',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">', // До виджета
+    'after_widget' => "</div>\n", // После виджета
+    'before_title' => '<h3>', //  До заголовка виджета
+    'after_title' => "</h3>\n", //  После заголовка виджета
 ));
 
 class clean_comments_constructor extends Walker_Comment { // класс, который собирает всю структуру комментов
@@ -115,7 +144,7 @@ if (!function_exists('add_styles')) { // если ф-я уже есть в до�
         wp_enqueue_style( 'mmenu', get_template_directory_uri().'/css/jquery.mmenu.css' ); //Библиотека бокового меню Mmenu
         wp_enqueue_style( 'owl-carusel', get_template_directory_uri().'/css/owl.carousel.min.css' ); //jQuery Карусель https://owlcarousel2.github.io/OwlCarousel2/
         wp_enqueue_style( 'mainstyle', get_template_directory_uri().'/css/style.css' ); // основные стили шаблона
-        wp_enqueue_style( 'media', get_template_directory_uri().'/css/media.css' ); // адаптация стилей
+        wp_enqueue_style( 'media-css', get_template_directory_uri().'/css/media.css' ); // адаптация стилей
     }
 }
 

@@ -25,6 +25,7 @@
     <![endif]-->
 </head>
 <body <?php body_class(); ?>>
+    <div id="my-page">
     <header>
         <div class="header_top">
           <a class="hamburger_wraper" href="#mmenu">
@@ -37,8 +38,8 @@
           <div class="container">
             <div class="row">
                 <?php
-                $args = array('theme_location' => 'top', 'container'=> 'nav', 'menu_class' => 'main_menu', 'menu_id' => 'bottom-nav');
-                wp_nav_menu($args);
+                    $args = array('theme_location' => 'top', 'container'=> 'nav', 'menu_class' => 'main_menu', 'menu_id' => 'bottom-nav');
+                    wp_nav_menu($args);
                 ?>
             </div>
           </div>
