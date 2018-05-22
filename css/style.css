@@ -511,6 +511,13 @@ h2{
     -webkit-border-radius: 6px;
     overflow: hidden;
     margin-bottom: 30px;
+    display: block;
+    color: #000;
+}
+
+.clients_item:hover{
+    text-decoration: none;
+    color: #4a4a4a;
 }
 
 .clients_item_img img{

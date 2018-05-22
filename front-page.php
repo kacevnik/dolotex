@@ -1,3 +1,9 @@
+<?php 
+    if (defined( 'FW' )){
+        $kdv_big_sale_form = fw_get_db_settings_option('kdv_big_sale_form');
+    }
+?>
+
 <?php get_header(); ?>
       <section id="main" class="pb_65 pt_55">
         <div class="main_top">
@@ -29,7 +35,7 @@
               </div>
               <div class="col-md-5">
                 <div class="main_bottom_img">
-                  <img src="img/main_img.png" alt="DOLOTEX">
+                  <img src="<?php echo get_template_directory_uri(); ?>/img/main_img.png" alt="DOLOTEX">
                 </div>
               </div>
             </div>
@@ -41,204 +47,91 @@
           <h2>Выбор подходящего промышленного пола</h2>
           <div class="sub_title">Выберите объект</div>
           <div class="row">
+            <?php
+                $args_category_list = array(
+                    'type'         => 'post',
+                    'child_of'     => 0,
+                    'parent'       => '',
+                    'orderby'      => 'ID',
+                    'order'        => 'ASC',
+                    'hide_empty'   => 0,
+                    'hierarchical' => 1,
+                    'exclude'      => '',
+                    'include'      => '',
+                    'number'       => 0,
+                    'taxonomy'     => 'cat_projects',
+                    'pad_counts'   => false,
+                );
+
+                $category_project_list = get_categories( $args_category_list );
+
+            ?>
+            <?php  
+                foreach ($category_project_list as $category_project_list_item) { 
+
+                if (defined( 'FW' )){
+                    $kdv_category_project_icon = fw_get_db_term_option($category_project_list_item->term_id, 'cat_projects', 'kdv_category_project_icon');
+                }
+            ?>
             <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="1">
+              <a href="#" class="obj_item" data-tab="<?php echo $category_project_list_item->term_id; ?>">
                 <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_1.png" alt="Больницы">
+                  <img src="<?php echo $kdv_category_project_icon['url']; ?>" alt="<?php echo $category_project_list_item->name; ?>">
                 </div>
-                <div class="obj_item_title">Больницы</div>
+                <div class="obj_item_title"><?php echo $category_project_list_item->name; ?></div>
                 <i class="far fa-check-circle"></i>
               </a>
             </div>
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="2">
-                <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_2.png" alt="Пищевая промышленность">
-                </div>
-                <div class="obj_item_title">Пищевая промышленность</div>
-                <i class="far fa-check-circle"></i>
-              </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="1">
-                <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_3.png" alt="Автосервисы">
-                </div>
-                <div class="obj_item_title">Автосервисы</div>
-                <i class="far fa-check-circle"></i>
-              </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="2">
-                <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_4.png" alt="Автомойки">
-                </div>
-                <div class="obj_item_title">Автомойки</div>
-                <i class="far fa-check-circle"></i>
-              </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="1">
-                <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_5.png" alt="Cклады">
-                </div>
-                <div class="obj_item_title">Cклады</div>
-                <i class="far fa-check-circle"></i>
-              </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="2">
-                <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_6.png" alt="Учебные заведения">
-                </div>
-                <div class="obj_item_title">Учебные заведения</div>
-                <i class="far fa-check-circle"></i>
-              </a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="1">
-                <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_7.png" alt="Выставочные здания">
-                </div>
-                <div class="obj_item_title">Выставочные здания</div>
-                <i class="far fa-check-circle"></i>
-              </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="2">
-                <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_8.png" alt="Жилые здания">
-                </div>
-                <div class="obj_item_title">Жилые здания</div>
-                <i class="far fa-check-circle"></i>
-              </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="1">
-                <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_9.png" alt="Погрузочные площадки">
-                </div>
-                <div class="obj_item_title">Погрузочные площадки</div>
-                <i class="far fa-check-circle"></i>
-              </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="2">
-                <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_10.png" alt="Заводы">
-                </div>
-                <div class="obj_item_title">Заводы</div>
-                <i class="far fa-check-circle"></i>
-              </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="1">
-                <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_11.png" alt="Гаражи">
-                </div>
-                <div class="obj_item_title">Гаражи</div>
-                <i class="far fa-check-circle"></i>
-              </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="2">
-                <div class="obj_item_img">
-                  <img src="img/obj_icons/obj_icon_12.png" alt="Автосалоны">
-                </div>
-                <div class="obj_item_title">Автосалоны</div>
-                <i class="far fa-check-circle"></i>
-              </a>
-            </div>
+            <?php } ?>
           </div>
         </div>
       </section>
       <section id="object_check" class="pt_90 pb_65">
         <div class="container">
-          <div id="tab_object_check_1" class="object_check_tab" style="display: block;">
-            <div class="obj_check_item odd">
-              <div class="obj_check_item_img"><img src="img/obj_check_1.png" alt="Эпоксидные полы"></div>
+            <?php
+                global $post;
+                $count_category_project = 1;
+                foreach ($category_project_list as $category_project_list_item) { 
+            ?>
+          <div id="tab_object_check_<?php echo $category_project_list_item->term_id; ?>" class="object_check_tab"<?php if($count_category_project == 1){echo ' style="display: block;"'; } ?>>
+            <?php
+                $args_posts_projects = array(
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'cat_projects',
+                            'terms' => array( 6 )
+                        )
+                    ),
+                    'post_type' => 'project',
+                    'posts_per_page' => -1
+                );
+
+                $posts_projects = query_posts($args_posts_projects);
+                $count_posts_projects_item = 1;
+                //print_r($posts_projects);
+                foreach ($posts_projects as $posts_projects_item) {
+            ?>
+            <div class="obj_check_item<?php echo ($count_posts_projects_item & 1) ? ' odd' : ' even' ?>">
+              <div class="obj_check_item_img">
+                <?php echo get_the_post_thumbnail( $posts_projects_item->ID, 'project-thumb' ); ?>
+            </div>
               <div class="obj_check_item_content">
-                <h5>Эпоксидные полы</h5>
+                <h5><?php echo $posts_projects_item->post_title; ?></h5>
                 <p>
-                  Эпоксидные полы уникально подходят для производства, имеющего дело с активными химическими веществами. Технологически сложная задача нанесения эпоксидного состава на основание
+                  <?php echo $posts_projects_item->post_content; ?>
                 </p>
-                <span><i class="fas fa-arrows-alt-v"></i>от 1900 р/м2</span>
+                <?php
+                    if (defined( 'FW' )){
+                        $kdv_project_aq = fw_get_db_post_option($posts_projects_item->ID, 'kdv_project_aq');
+                    }
+                ?>
+                <span><i class="fas fa-arrows-alt-v"></i><?php echo $kdv_project_aq; ?></span>
                 <div class="obj_check_item_btn"><a href="" class="btn"><i class="fas fa-file-alt"></i>Расчет стоимости</a></div>
               </div>
             </div>
-            <div class="obj_check_item even">
-              <div class="obj_check_item_img"><img src="img/obj_check_2.png" alt="Эпоксидные полы"></div>
-              <div class="obj_check_item_content">
-                <h5>Эпоксидные полы</h5>
-                <p>
-                  Эпоксидные полы уникально подходят для производства, имеющего дело с активными химическими веществами. Технологически сложная задача нанесения эпоксидного состава на основание
-                </p>
-                <span><i class="fas fa-arrows-alt-v"></i>от 1900 р/м2</span>
-                <div class="obj_check_item_btn"><a href="" class="btn"><i class="fas fa-file-alt"></i>Расчет стоимости</a></div>
-              </div>
-            </div>
+            <?php $count_posts_projects_item++; } ?>
           </div>
-          <div id="tab_object_check_2" class="object_check_tab">
-            <div class="obj_check_item odd">
-              <div class="obj_check_item_img"><img src="img/obj_check_1.png" alt="Эпоксидные полы"></div>
-              <div class="obj_check_item_content">
-                <h5>Эпоксидные полы</h5>
-                <p>
-                  Эпоксидные полы уникально подходят для производства, имеющего дело с активными химическими веществами. Технологически сложная задача нанесения эпоксидного состава на основание
-                </p>
-                <span><i class="fas fa-arrows-alt-v"></i>от 1900 р/м2</span>
-                <div class="obj_check_item_btn"><a href="" class="btn"><i class="fas fa-file-alt"></i>Расчет стоимости</a></div>
-              </div>
-            </div>
-            <div class="obj_check_item even">
-              <div class="obj_check_item_img"><img src="img/obj_check_2.png" alt="Эпоксидные полы"></div>
-              <div class="obj_check_item_content">
-                <h5>Эпоксидные полы</h5>
-                <p>
-                  Эпоксидные полы уникально подходят для производства, имеющего дело с активными химическими веществами. Технологически сложная задача нанесения эпоксидного состава на основание
-                </p>
-                <span><i class="fas fa-arrows-alt-v"></i>от 1900 р/м2</span>
-                <div class="obj_check_item_btn"><a href="" class="btn"><i class="fas fa-file-alt"></i>Расчет стоимости</a></div>
-              </div>
-            </div>
-            <div class="obj_check_item odd">
-              <div class="obj_check_item_img"><img src="img/obj_check_1.png" alt="Эпоксидные полы"></div>
-              <div class="obj_check_item_content">
-                <h5>Эпоксидные полы</h5>
-                <p>
-                  Эпоксидные полы уникально подходят для производства, имеющего дело с активными химическими веществами. Технологически сложная задача нанесения эпоксидного состава на основание
-                </p>
-                <span><i class="fas fa-arrows-alt-v"></i>от 1900 р/м2</span>
-                <div class="obj_check_item_btn"><a href="" class="btn"><i class="fas fa-file-alt"></i>Расчет стоимости</a></div>
-              </div>
-            </div>
-          </div>
-          <div id="tab_object_check_2" class="object_check_tab">
-            <div class="obj_check_item odd">
-              <div class="obj_check_item_img"><img src="img/obj_check_1.png" alt="Эпоксидные полы"></div>
-              <div class="obj_check_item_content">
-                <h5>Эпоксидные полы</h5>
-                <p>
-                  Эпоксидные полы уникально подходят для производства, имеющего дело с активными химическими веществами. Технологически сложная задача нанесения эпоксидного состава на основание
-                </p>
-                <span><i class="fas fa-arrows-alt-v"></i>от 1900 р/м2</span>
-                <div class="obj_check_item_btn"><a href="" class="btn"><i class="fas fa-file-alt"></i>Расчет стоимости</a></div>
-              </div>
-            </div>
-            <div class="obj_check_item even">
-              <div class="obj_check_item_img"><img src="img/obj_check_2.png" alt="Эпоксидные полы"></div>
-              <div class="obj_check_item_content">
-                <h5>Эпоксидные полы</h5>
-                <p>
-                  Эпоксидные полы уникально подходят для производства, имеющего дело с активными химическими веществами. Технологически сложная задача нанесения эпоксидного состава на основание
-                </p>
-                <span><i class="fas fa-arrows-alt-v"></i>от 1900 р/м2</span>
-                <div class="obj_check_item_btn"><a href="" class="btn"><i class="fas fa-file-alt"></i>Расчет стоимости</a></div>
-              </div>
-            </div>
-          </div>
+          <?php $count_category_project++; } ?>
         </div>
       </section>
       <section id="sale" class="bonus pt_55 pb_65">
@@ -256,21 +149,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="form">
-                <h3>Заполните форму</h3>
-                <p>и узнайте сколько составит ваша экономия!</p>
-                <div class="form_input">
-                  <div class="form_input_icon"><i class="fas fa-mobile-alt"></i></div>
-                  <div class="form_input_text"><input type="text" name="phone" placeholder="+380 (__) __ __ ___" required=""></div>
-                </div>
-                <div class="form_input">
-                  <div class="form_input_icon"><i class="far fa-envelope"></i></div>
-                  <div class="form_input_text"><input type="text" name="email" placeholder="Ваша почта" required=""></div>
-                </div>
-                <div class="form_btn">
-                  <a href="#" class="btn">Оставьте заявку</a>
-                </div>
-              </div>
+                <?php echo do_shortcode($kdv_big_sale_form); ?>
             </div>
           </div>
         </div>
@@ -279,60 +158,33 @@
         <div class="container">
           <h2>Наши клиенты</h2>
           <div class="row">
+            <?php
+                $args_posts_clients = array(
+                    'post_type' => 'client',
+                    'posts_per_page' => 6
+                );
+
+                $posts_clients = query_posts($args_posts_clients);
+                //print_r($posts_clients);
+                foreach ($posts_clients as $posts_clients_item) {
+            ?>
             <div class="col-md-4 col-sm-6">
-              <div class="clients_item">
-                <div class="clients_item_img"><img src="img/clients.png" alt="ООО “Тетрис холл”"></div>
-                <div class="clients_item_content">
-                  <h6>ООО “Тетрис холл”</h6>
-                  <p><i class="fas fa-arrows-alt-v"></i>Площадь: 4000 м2</p>
+              <a class="clients_item" href="<?php echo get_permalink($posts_clients_item->ID); ?>">
+                <div class="clients_item_img">
+                    <?php echo get_the_post_thumbnail( $posts_clients_item->ID, 'client-thumb' ); ?>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="clients_item">
-                <div class="clients_item_img"><img src="img/clients.png" alt="ООО “Тетрис холл”"></div>
                 <div class="clients_item_content">
-                  <h6>ООО “Тетрис холл”</h6>
-                  <p><i class="fas fa-arrows-alt-v"></i>Площадь: 4000 м2</p>
+                  <h6><?php echo $posts_clients_item->post_title; ?></h6>
+                    <?php
+                        if (defined( 'FW' )){
+                            $kdv_client_sqw = fw_get_db_post_option($posts_clients_item->ID, 'kdv_client_sqw');
+                        }
+                    ?>
+                  <p><i class="fas fa-arrows-alt-v"></i><?php echo $kdv_client_sqw; ?></p>
                 </div>
-              </div>
+              </a>
             </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="clients_item">
-                <div class="clients_item_img"><img src="img/clients.png" alt="ООО “Тетрис холл”"></div>
-                <div class="clients_item_content">
-                  <h6>ООО “Тетрис холл”</h6>
-                  <p><i class="fas fa-arrows-alt-v"></i>Площадь: 4000 м2</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="clients_item">
-                <div class="clients_item_img"><img src="img/clients.png" alt="ООО “Тетрис холл”"></div>
-                <div class="clients_item_content">
-                  <h6>ООО “Тетрис холл”</h6>
-                  <p><i class="fas fa-arrows-alt-v"></i>Площадь: 4000 м2</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="clients_item">
-                <div class="clients_item_img"><img src="img/clients.png" alt="ООО “Тетрис холл”"></div>
-                <div class="clients_item_content">
-                  <h6>ООО “Тетрис холл”</h6>
-                  <p><i class="fas fa-arrows-alt-v"></i>Площадь: 4000 м2</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="clients_item">
-                <div class="clients_item_img"><img src="img/clients.png" alt="ООО “Тетрис холл”"></div>
-                <div class="clients_item_content">
-                  <h6>ООО “Тетрис холл”</h6>
-                  <p><i class="fas fa-arrows-alt-v"></i>Площадь: 4000 м2</p>
-                </div>
-              </div>
-            </div>
+            <?php } ?>
           </div>
         </div>
       </section>
@@ -341,11 +193,11 @@
         <h2>И еще более 100 клиентов</h2>
         <div class="client_slider_content">
           <div class="client_slider owl-carousel">
-            <div><img src="img/contact_logo_1.png" alt=""></div>
-            <div><img src="img/contact_logo_2.png" alt=""></div>
-            <div><img src="img/contact_logo_1.png" alt=""></div>
-            <div><img src="img/contact_logo_3.png" alt=""></div>
-            <div><img src="img/contact_logo_4.png" alt=""></div>
+            <div><img src="<?php echo get_template_directory_uri(); ?>/img/contact_logo_1.png" alt=""></div>
+            <div><img src="<?php echo get_template_directory_uri(); ?>/img/contact_logo_2.png" alt=""></div>
+            <div><img src="<?php echo get_template_directory_uri(); ?>/img/contact_logo_1.png" alt=""></div>
+            <div><img src="<?php echo get_template_directory_uri(); ?>/img/contact_logo_3.png" alt=""></div>
+            <div><img src="<?php echo get_template_directory_uri(); ?>/img/contact_logo_4.png" alt=""></div>
           </div>
         </div>
         </div>

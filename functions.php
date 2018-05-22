@@ -7,6 +7,8 @@ register_nav_menus(array( // Регистрация меню
 add_theme_support('post-thumbnails'); // Включение миниатюр
 set_post_thumbnail_size(250, 150); // Размер миниатюр 250x150
 add_image_size('big-thumb', 400, 400, true); // Ещё один размер миниатюры
+add_image_size('project-thumb', 670, 430, true); // Ещё один размер миниатюры
+add_image_size('client-thumb', 355, 230, true); // Ещё один размер миниатюры
 
 register_sidebar(array(
     'name' => 'Виджет Футер №1', // Название сайдбара
@@ -118,6 +120,131 @@ function pagination() { // функция вывода пагинации
         'after_page_number' => '' // строка после цифры
     ));
 }
+
+    add_action('init', 'create_taxonomy_project');
+    function create_taxonomy_project(){
+        // список параметров: http://wp-kama.ru/function/get_taxonomy_labels
+        register_taxonomy('cat_projects', array('project'), array(
+            'label'                 => '', // определяется параметром $labels->name
+            'labels'                => array(
+                'name' => _x( 'Категории проектов', 'taxonomy general name' ),
+                'singular_name' => _x( 'Категория', 'taxonomy singular name' ),
+                'search_items' =>  __( 'Искать категории проектов' ),
+                'all_items' => __( 'Все категории' ),
+                'parent_item' => __( 'Родительская категория' ),
+                'parent_item_colon' => __( 'Родительская категория:' ),
+                'edit_item' => __( 'Редактировать категорию проектов' ),
+                'update_item' => __( 'Обновить категорию проектов' ),
+                'add_new_item' => __( 'Добавить категорию проектов' ),
+                'new_item_name' => __( 'Новая категория проектов' ),
+                'menu_name' => __( 'Категории' ),
+            ),
+            'description'           => '', // описание таксономии
+            'public'                => true,
+            'publicly_queryable'    => null, // равен аргументу public
+            'show_in_nav_menus'     => true, // равен аргументу public
+            'show_ui'               => true, // равен аргументу public
+            'show_in_menu'          => true, // равен аргументу show_ui
+            'show_tagcloud'         => true, // равен аргументу show_ui
+            'show_in_rest'          => null, // добавить в REST API
+            'rest_base'             => null, // $taxonomy
+            'hierarchical'          => true,
+            'update_count_callback' => '',
+            'rewrite'               => true,
+            //'query_var'             => $taxonomy, // название параметра запроса
+            'capabilities'          => array(),
+            'meta_box_cb'           => null, // callback функция. Отвечает за html код метабокса (с версии 3.8): post_categories_meta_box или post_tags_meta_box. Если указать false, то метабокс будет отключен вообще
+            'show_admin_column'     => false, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
+            '_builtin'              => false,
+            'show_in_quick_edit'    => null, // по умолчанию значение show_ui
+        ) );
+    }
+
+    add_action('init', 'register_post_types_project');
+    function register_post_types_project(){
+        register_post_type('project', array(
+            'label'  => null,
+            'labels' => array(
+                'name'               => 'Проекты', // основное название для типа записи
+                'singular_name'      => 'Проект', // название для одной записи этого типа
+                'add_new'            => 'Добавить Проект', // для добавления новой записи
+                'add_new_item'       => 'Добавление Проекта', // заголовка у вновь создаваемой записи в админ-панели.
+                'edit_item'          => 'Редактирование Проекта', // для редактирования типа записи
+                'new_item'           => 'Новый Проект', // текст новой записи
+                'view_item'          => 'Смотреть Проект', // для просмотра записи этого типа.
+                'search_items'       => 'Искать Проект', // для поиска по этим типам записи
+                'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+                'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+                'parent_item_colon'  => '', // для родителей (у древовидных типов)
+                'menu_name'          => 'Проекты', // название меню
+            ),
+            'description'         => '',
+            'public'              => true,
+            'publicly_queryable'  => null, // зависит от public
+            'exclude_from_search' => null, // зависит от public
+            'show_ui'             => null, // зависит от public
+            'show_in_menu'        => null, // показывать ли в меню адмнки
+            'show_in_admin_bar'   => null, // по умолчанию значение show_in_menu
+            'show_in_nav_menus'   => null, // зависит от public
+            'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+            'rest_base'           => null, // $post_type. C WP 4.7
+            'menu_position'       => null,
+            'menu_icon'           => 'dashicons-index-card', 
+            //'capability_type'   => 'post',
+            //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
+            //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
+            'hierarchical'        => false,
+            'supports'            => array('title','editor','thumbnail'), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+            'taxonomies'          => array('cat_projects'),
+            'has_archive'         => false,
+            'rewrite'             => true,
+            'query_var'           => true,
+        ) );
+    }
+
+    add_action('init', 'register_post_types_client');
+    function register_post_types_client(){
+        register_post_type('client', array(
+            'label'  => null,
+            'labels' => array(
+                'name'               => 'Клиенты', // основное название для типа записи
+                'singular_name'      => 'Клиент', // название для одной записи этого типа
+                'add_new'            => 'Добавить клиента', // для добавления новой записи
+                'add_new_item'       => 'Добавление клиента', // заголовка у вновь создаваемой записи в админ-панели.
+                'edit_item'          => 'Редактирование клиента', // для редактирования типа записи
+                'new_item'           => 'Новый клиент', // текст новой записи
+                'view_item'          => 'Смотреть клиента', // для просмотра записи этого типа.
+                'search_items'       => 'Искать клиента', // для поиска по этим типам записи
+                'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+                'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+                'parent_item_colon'  => '', // для родителей (у древовидных типов)
+                'menu_name'          => 'Клиенты', // название меню
+            ),
+            'description'         => '',
+            'public'              => true,
+            'publicly_queryable'  => null, // зависит от public
+            'exclude_from_search' => null, // зависит от public
+            'show_ui'             => null, // зависит от public
+            'show_in_menu'        => null, // показывать ли в меню адмнки
+            'show_in_admin_bar'   => null, // по умолчанию значение show_in_menu
+            'show_in_nav_menus'   => null, // зависит от public
+            'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+            'rest_base'           => null, // $post_type. C WP 4.7
+            'menu_position'       => null,
+            'menu_icon'           => 'dashicons-admin-users', 
+            //'capability_type'   => 'post',
+            //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
+            //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
+            'hierarchical'        => false,
+            'supports'            => array('title','editor','thumbnail'), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+            'taxonomies'          => array(),
+            'has_archive'         => false,
+            'rewrite'             => true,
+            'query_var'           => true,
+        ) );
+    }
+
+    register_taxonomy_for_object_type( 'project', 'cat_projects' );
 
 add_action('wp_footer', 'add_scripts'); // приклеем ф-ю на добавление скриптов в футер
 if (!function_exists('add_scripts')) { // если ф-я уже есть в дочерней теме - нам не надо её определять
