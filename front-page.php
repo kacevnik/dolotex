@@ -1,6 +1,7 @@
 <?php 
     if (defined( 'FW' )){
         $kdv_big_sale_form = fw_get_db_settings_option('kdv_big_sale_form');
+        $kdv_big_sale_form_2 = fw_get_db_settings_option('kdv_big_sale_form_2');
     }
 ?>
 
@@ -207,36 +208,31 @@
           <h2>Отзывы и благодарственные письма</h2>
             <div class="com_slider_container">
               <div class="owl-carousel com_slider">
+                <?php
+                    $args_posts_otziv = array(
+                        'post_type' => 'otziv',
+                        'posts_per_page' => -1
+                    );
+
+                    $posts_otziv = query_posts($args_posts_otziv);
+                    //print_r($posts_otziv);
+                    foreach ($posts_otziv as $posts_otziv_item) {
+                    if (defined( 'FW' )){
+                        $kdv_otziv_image   = fw_get_db_post_option($posts_otziv_item->ID, 'kdv_otziv_image');
+                        $kdv_otziv_comment = fw_get_db_post_option($posts_otziv_item->ID, 'kdv_otziv_comment');
+                    }
+                ?>
                 <div class="com_slider_item">
-                  <div class="com_slider_item_img"><img src="img/otziv_face.png" alt="Константин"></div>
+                  <div class="com_slider_item_img"><img src="<?php echo $kdv_otziv_image['url']; ?>" alt="<?php echo $posts_otziv_item->post_title; ?>"></div>
                   <div class="com_slider_item_text">
-                    <h6>Константин</h6>
+                    <h6><?php echo $posts_otziv_item->post_title; ?></h6>
                     <p>
-                        В работе над любой PR-проектом важно держать под контролем все его составляющие, вне зависимости от масштаба работы. ECOSAP отлично подходит для мониторинга упоминаний по клиентам, подготовки аналитических отчетов или отправки пресс-релизов
+                        <?php echo $posts_otziv_item->post_content; ?>
                     </p>
-                    <i>- менеджер PR-агентства</i>
+                    <i><?php echo $kdv_otziv_comment; ?></i>
                   </div>
                 </div>
-                <div class="com_slider_item">
-                  <div class="com_slider_item_img"><img src="img/otziv_face.png" alt="Константин"></div>
-                  <div class="com_slider_item_text">
-                    <h6>Константин</h6>
-                    <p>
-                        В работе над любой PR-проектом важно держать под контролем все его составляющие, вне зависимости от масштаба работы. ECOSAP отлично подходит для мониторинга упоминаний по клиентам, подготовки аналитических отчетов или отправки пресс-релизов
-                    </p>
-                    <i>- менеджер PR-агентства</i>
-                  </div>
-                </div>
-                <div class="com_slider_item">
-                  <div class="com_slider_item_img"><img src="img/otziv_face.png" alt="Константин"></div>
-                  <div class="com_slider_item_text">
-                    <h6>Константин</h6>
-                    <p>
-                        В работе над любой PR-проектом важно держать под контролем все его составляющие, вне зависимости от масштаба работы. ECOSAP отлично подходит для мониторинга упоминаний по клиентам, подготовки аналитических отчетов или отправки пресс-релизов
-                    </p>
-                    <i>- менеджер PR-агентства</i>
-                  </div>
-                </div>
+                <?php } ?>
               </div>
             </div>
         </div>
@@ -258,21 +254,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="form">
-                <h3>Заполните форму</h3>
-                <p>и узнайте сколько составит ваша экономия!</p>
-                <div class="form_input">
-                  <div class="form_input_icon"><i class="fas fa-mobile-alt"></i></div>
-                  <div class="form_input_text"><input type="text" name="phone" placeholder="+380 (__) __ __ ___" required=""></div>
-                </div>
-                <div class="form_input">
-                  <div class="form_input_icon"><i class="far fa-envelope"></i></div>
-                  <div class="form_input_text"><input type="text" name="email" placeholder="Ваша почта" required=""></div>
-                </div>
-                <div class="form_btn">
-                  <a href="#" class="btn">Оставьте заявку</a>
-                </div>
-              </div>
+                <?php echo do_shortcode($kdv_big_sale_form_2); ?>
             </div>
           </div>
         </div>

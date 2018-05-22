@@ -126,6 +126,21 @@
                      * Useful when you use the select to populate it dynamically from js
                      */
                     'no-validate' => false,
+                ),
+
+                'kdv_big_sale_form_2' => array(
+                    'type'  => 'select',
+                    'value' => 'choice-3',
+                    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+                    'label' => __('Форма №3', '{domain}'),
+                    'desc'  => __('Выбирите форму для блока Большие объемы', '{domain}'),
+                    'help'  => __('Выбирите форму для блока Большие объемы плагина Contact Form 7', '{domain}'),
+                    'choices' => $posts_cf_7,
+                    /**
+                     * Allow save not existing choices
+                     * Useful when you use the select to populate it dynamically from js
+                     */
+                    'no-validate' => false,
                 )
             ),
             'title' => __('Настройки главной', '{domain}'),

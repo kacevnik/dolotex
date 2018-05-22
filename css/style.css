@@ -108,7 +108,7 @@ h2{
     color: #000000;
 }
 
-.main_menu li.current_page_item a:before{
+.main_menu li.current-menu-item a:before{
     content: "";
     position: absolute;
     left: 0;
