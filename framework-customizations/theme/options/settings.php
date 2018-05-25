@@ -141,7 +141,15 @@
                      * Useful when you use the select to populate it dynamically from js
                      */
                     'no-validate' => false,
-                )
+                ),
+
+                'kdv_count_tovar_on_page' => array(
+                    'type'  => 'text',
+                    'value' => '8',
+                    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+                    'label' => __('Сколько товаров?', '{domain}'),
+                    'desc'  => __('Укажите количество товаров, каторое следует показывать на странице', '{domain}'),
+                ),
             ),
             'title' => __('Настройки главной', '{domain}'),
             'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),

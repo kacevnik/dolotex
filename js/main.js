@@ -5,6 +5,30 @@
          }
       });
 
+      $('.more_product_catalog .btn').click(function(event) {
+        var count = $(this).attr('data-count-tovar');
+        var show = $(this).attr('data-show-row');
+        var more = $(this).find('span').html();
+
+        $.each($('.hide_row'), function(index, value) {
+            var number = $(this).attr('data-number');
+            if(number*1 < show*1){
+              $(this).fadeIn('300').removeClass('hide_row').addClass('show_row');
+            }
+        });
+
+        var res_more = more*1 - count*1;
+
+        $(this).attr('data-show-row', count*1 + show*1);
+        $(this).find('span').html(res_more);
+
+        if(res_more < 1){
+          $(this).parent().hide();
+        }
+
+        return false;
+      });
+
       $('.obj_item').click(function(){
          $('.object_check_tab').hide();
          $('.obj_item').removeClass('active');

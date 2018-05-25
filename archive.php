@@ -1,7 +1,15 @@
-<?php get_header();
+<?php 
+    get_header();
+
+    if (defined( 'FW' )){
+        $kdv_count_tovar_on_page = fw_get_db_settings_option('kdv_count_tovar_on_page');
+    }
+
     $taxonomy= get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
     print_r($taxonomy);
     $count_tovar = 1;
+    $count_tovar_hide = 1;
+    $hide_tovar_class = ' show_row';
     if($taxonomy->taxonomy == 'cat_tovar'){
 ?>
       <section id="catalog">
@@ -11,14 +19,17 @@
             </div>
           <h1><?php echo $taxonomy->name; ?></h1>
             <?php if (have_posts()) : while (have_posts()) : the_post(); // если посты есть - запускаем цикл wp ?>
-            <?php if($count_tovar == 1){echo '<div class="row">'; } $count_tovar++; ?>
+            <?php if($count_tovar_hide > $kdv_count_tovar_on_page){$hide_tovar_class = ' hide_row'; $data_humber = ' data-number="' . $count_tovar_hide . '"';} $count_tovar_hide++?>
+            <?php if($count_tovar == 1){echo '<div class="row' . $hide_tovar_class . '"' . $data_humber . '>'; } $count_tovar++; ?>
                 <?php get_template_part('loop_tovar'); // для отображения каждой записи берем шаблон loop.php ?>
-            <?php if($count_tovar == 5 || $taxonomy->count == $count_tovar - 1){echo '</div>'; $count_tovar = 1;}?>
+            <?php if($count_tovar == 5 || $taxonomy->count == $count_tovar_hide - 1){echo '</div>'; $count_tovar = 1;}?>
             <?php endwhile; // конец цикла ?>
             <?php else: echo '<h2>Товаров нет</h2>'; endif; // если записей нет, напишим "простите" ?>
+            <?php if($taxonomy->count > $kdv_count_tovar_on_page){ ?>
           <div class="more_product_catalog">
-            <a href="#" class="btn more"><i class="fas fa-sync-alt"></i>Ещё 30 товаров</a>
+            <a href="" class="btn more" data-show-row="<?php echo $kdv_count_tovar_on_page*2; ?>" data-count-tovar="<?php echo $kdv_count_tovar_on_page; ?>"><i class="fas fa-sync-alt"></i>Ещё <span><?php echo $taxonomy->count - $kdv_count_tovar_on_page; ?></span> товаров</a>
           </div>
+          <?php } ?>
         </div>
       </section>
       <section id="catalog_download" class="pt_90 pb_90">
