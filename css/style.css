@@ -770,6 +770,10 @@ footer .hot_phone{
     text-align: center;
 }
 
+.catalog_item_img img{
+    width: 100%;
+}
+
 .catalog_item_content{
     position: relative;
 }
@@ -1223,6 +1227,18 @@ footer .hot_phone{
 
 #contact_info h2{
     padding-bottom: 70px;
+}
+
+.breadcrumbs{
+    font-size: 14px;
+}
+
+.breadcrumbs a{
+    color: #000;
+}
+
+.breadcrumbs .kb_title{
+    color: #bc0000;
 }
 
 
