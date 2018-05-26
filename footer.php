@@ -37,6 +37,24 @@
     </div>
   </div>
 
+    <div id="call_back_hidden_product">
+      <form method="post" action="<?php echo get_template_directory_uri(); ?>/send.php">
+        <div class="form">
+          <h3>Укажите номер</h3>
+          <p>и наш специалист перезвонит Вам в тесении 5 минут</p>
+          <div class="form_input">
+            <div class="form_input_icon"><i class="fas fa-mobile-alt"></i></div>
+            <input type="hidden" name="name_product">
+            <input type="hidden" name="form" value="Форма заказа товара: ">
+            <div class="form_input_text"><input type="text" name="phone" placeholder="+380 (__) __ __ ___" required="" autocomplete="off"></div>
+          </div>
+          <div class="form_btn">
+            <input type="submit" name="submit" class="btn">
+          </div>
+        </div>
+      </form>
+    </div>
+
   <a id="thanks_link" style="display: none;" data-fancybox data-src="#thanks_popup" href="javascript:;">Спасибо</a>
 
   <div id="thanks_popup">

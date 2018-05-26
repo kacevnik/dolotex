@@ -10,15 +10,17 @@ $mailServerLogin = get_option('mailserver_login');
 $mailServerPass  = get_option('mailserver_pass');
 $mailServerPort  = get_option('mailserver_port');
 $mailServerUrl   = get_option('mailserver_url');
+$name_product    = '';
 
 
 // ==== Принудительный захват массива переменных ==========================
 // ==== раскомментировать, если письма отправляются без значений полей ====
-$text       = '';
-$email      = $_POST['email'];          if($email){$text      = 'E-mail пользователя: '.$email.'<br>';}
-$phone      = $_POST['phone'];          if($phone){$text      = $text.'Телефон пользователя: '.$phone.'<br>';}
-$name       = $_POST['name'];           if($name){$text       = $text.'Имя пользователя: '.$name.'<br>';}
-$form       = $_POST['form'];
+$text          = '';
+$email         = $_POST['email'];          if($email){$text          = 'E-mail пользователя: '.$email.'<br>';}
+$phone         = $_POST['phone'];          if($phone){$text          = $text.'Телефон пользователя: '.$phone.'<br>';}
+$name          = $_POST['name'];           if($name){$text           = $text.'Имя пользователя: '.$name.'<br>';}
+$name_product  = $_POST['name_product'];   if($name_product){$text   = $text.'Пользователя интересует продукт: '.$name_product.'<br>';}
+$form          = $_POST['form'];
 
 $text = $text.'<br><br>Сообщение с сайта <a href="' . $sait_url . '">' . $sait_name . '</a>';
 $text = $text.'<br>Отвечать на это сообщение не надо.';
@@ -40,7 +42,7 @@ $mail->addAddress($adminEmail, $adminEmail);          // Add a recipient
 
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Subject = $form;
+$mail->Subject = $form . $name_product;
 $mail->Body    = $text;
 
 

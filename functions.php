@@ -16,25 +16,6 @@ add_filter('category_link', create_function('$a', 'return str_replace("category/
 
 
 /**
- * Настройка SMTP
- *
- * @param PHPMailer $phpmailer объект мэилера
- */
-function mihdan_send_smtp_email( PHPMailer $phpmailer ) {
-  $phpmailer->isSMTP();
-  $phpmailer->Host       = get_option('mailserver_url');
-  $phpmailer->SMTPAuth   = true;
-  $phpmailer->Port       = get_option('mailserver_port');
-  $phpmailer->Username   = get_option('mailserver_login');
-  $phpmailer->Password   = get_option('mailserver_pass');
-  $phpmailer->SMTPSecure = 'ssl';
-  $phpmailer->From       = get_option('admin_email');
-  $phpmailer->FromName   = get_option('blogname');
-}
-add_action( 'phpmailer_init', 'mihdan_send_smtp_email' );
-
-
-/**
  * Хлебные крошки для WordPress (breadcrumbs)
  *
  * @param  string [$sep  = '']      Разделитель. По умолчанию ' » '

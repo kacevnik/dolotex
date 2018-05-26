@@ -1,8 +1,9 @@
 <?php
     if (defined( 'FW' )){
-        $kdv_phone_header = fw_get_db_settings_option('kdv_phone_header');
+        $kdv_phone_header  = fw_get_db_settings_option('kdv_phone_header');
         $kdv_phone_header2 = fw_get_db_settings_option('kdv_phone_header2');
-        $kdv_logo_header = fw_get_db_settings_option('kdv_logo');
+        $kdv_logo_header   = fw_get_db_settings_option('kdv_logo');
+        $kdv_price         = fw_get_db_settings_option('kdv_price');
     }
 ?>
 <!DOCTYPE html>
@@ -15,6 +16,13 @@
     <link rel="alternate" type="application/rss+xml" title="Comments RSS" href="<?php bloginfo('comments_rss2_url'); ?>">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <?php if($kdv_price['url']){ ?>
+    <script type="text/javascript">
+      var GlobalDATA = {
+        <?php if($kdv_price['url']){ ?>'kdv_price': '<?php echo $kdv_price['url']; ?>', <?php } ?>
+      }
+    </script>
+    <?php } ?>
     <?php wp_head(); ?>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

@@ -98,36 +98,6 @@
                     'extra_mime_types' => array( 'audio/x-aiff, aif aiff' )
                 ),
 
-                'kdv_big_sale_form' => array(
-                    'type'  => 'select',
-                    'value' => 'choice-3',
-                    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-                    'label' => __('Форма №2', '{domain}'),
-                    'desc'  => __('Выбирите форму для блока Большие скидки', '{domain}'),
-                    'help'  => __('Выбирите форму для блока Большие скидки плагина Contact Form 7', '{domain}'),
-                    'choices' => $posts_cf_7,
-                    /**
-                     * Allow save not existing choices
-                     * Useful when you use the select to populate it dynamically from js
-                     */
-                    'no-validate' => false,
-                ),
-
-                'kdv_big_sale_form_2' => array(
-                    'type'  => 'select',
-                    'value' => 'choice-3',
-                    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-                    'label' => __('Форма №3', '{domain}'),
-                    'desc'  => __('Выбирите форму для блока Большие объемы', '{domain}'),
-                    'help'  => __('Выбирите форму для блока Большие объемы плагина Contact Form 7', '{domain}'),
-                    'choices' => $posts_cf_7,
-                    /**
-                     * Allow save not existing choices
-                     * Useful when you use the select to populate it dynamically from js
-                     */
-                    'no-validate' => false,
-                ),
-
                 'kdv_count_tovar_on_page' => array(
                     'type'  => 'text',
                     'value' => '8',
@@ -135,6 +105,38 @@
                     'label' => __('Сколько товаров?', '{domain}'),
                     'desc'  => __('Укажите количество товаров, каторое следует показывать на странице', '{domain}'),
                 ),
+
+                'kdv_price' => array(
+                    'type'  => 'upload',
+                    'value' => array(
+                        /*
+                        'attachment_id' => '9',
+                        'url' => '//site.com/wp-content/uploads/2014/02/whatever.jpg'
+                        */
+                        // if value is set in code, it is not considered and not used
+                        // because there is no sense to set hardcode attachment_id
+                    ),
+                    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+                    'label' => __('Прайс-лист', '{domain}'),
+                    'desc'  => __('', '{domain}'),
+                    'help'  => __('Загрузите прайс-лист (разрешенные файлы для загрузки: pdf, exel, doc)', '{domain}'),
+                    /**
+                     * If set to `true`, the option will allow to upload only images, and display a thumb of the selected one.
+                     * If set to `false`, the option will allow to upload any file from the media library.
+                     */
+                    'images_only' => true,
+                    /**
+                     * An array with allowed files extensions what will filter the media library and the upload files.
+                     */
+                    'files_ext' => array( 'pdf', 'exel', 'doc' ),
+                    /**
+                     * An array with extra mime types that is not in the default array with mime types from the javascript Plupload library.
+                     * The format is: array( '<mime-type>, <ext1> <ext2> <ext2>' ).
+                     * For example: you set rar format to filter, but the filter ignore it , than you must set
+                     * the array with the next structure array( '.rar, rar' ) and it will solve the problem.
+                     */
+                    'extra_mime_types' => array( 'audio/x-aiff, aif aiff' )
+                )
             ),
             'title' => __('Настройки главной', '{domain}'),
             'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),

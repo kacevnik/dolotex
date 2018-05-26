@@ -37,6 +37,12 @@
         $("#thanks_link").trigger("click");
       });
 
+      $('#douwload_price').click(function(event) {
+        if($('.form_pdf input[name="phone"]').val() != '' && $('.form_pdf input[name="phone"]').val() != ' '){
+          window.open(GlobalDATA.kdv_price);
+        }
+      });
+
       $('.obj_item').click(function(){
          $('.object_check_tab').hide();
          $('.obj_item').removeClass('active');

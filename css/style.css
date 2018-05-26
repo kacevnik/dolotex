@@ -1256,6 +1256,7 @@ footer .hot_phone{
 }
 
 #thanks_popup{
+    display: none;
     width: 400px;
 }
 

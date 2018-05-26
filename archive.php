@@ -3,6 +3,7 @@
 
     if (defined( 'FW' )){
         $kdv_count_tovar_on_page = fw_get_db_settings_option('kdv_count_tovar_on_page');
+        $kdv_phone_header  = fw_get_db_settings_option('kdv_phone_header');
     }
 
     $taxonomy= get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
@@ -35,12 +36,14 @@
       <section id="catalog_download" class="pt_90 pb_90">
         <div class="div container">
           <h2>Скачать прайс-лист</h2>
-          <div class="form">
+          <div class="form form_pdf">
+            <form method="post" action="<?php echo get_template_directory_uri(); ?>/send.php">
             <div class="row">
               <div class="col-md-4">
                 <div class="form_input">
                   <div class="form_input_icon"><i class="fas fa-mobile-alt"></i></div>
-                  <div class="form_input_text"><input type="text" name="phone" placeholder="+380 (__) __ __ ___" required=""></div>
+                  <div class="form_input_text"><input type="text" name="phone" placeholder="+380 (__) __ __ ___" required="" autocomplete="off"></div>
+                  <input type="hidden" name="form" value="Скачать Прайс-Лист">
                 </div>
               </div>
               <div class="col-md-4">
@@ -50,9 +53,10 @@
                 </div>
               </div>
               <div class="col-md-4 form_btn">
-                <a href="#" class="btn"><i class="fas fa-file-alt"></i>Скачать прайс-лист</a>
+                <button class="btn" id="douwload_price"><i class="fas fa-file-alt"></i>Скачать прайс-лист</button>
               </div>
             </div>
+            </form>
           </div>
           <div class="row article_phone_text">
             <div class="col-md-8 pnone_text">
@@ -60,7 +64,7 @@
             </div>
             <div class="col-md-4">
               <div class="number_phone">
-                <i class="fas fa-phone"></i>8 800 800 80 80
+                <i class="fas fa-phone"></i><?php echo $kdv_phone_header; ?>
               </div>
               <div class="phone">
                 Звонок БЕСПЛАТНЫЙ
@@ -69,20 +73,6 @@
           </div>
         </div>
       </section>
-    <div id="call_back_hidden_product">
-          <div class="form">
-            <h3>Укажите номер</h3>
-            <p>и наш специалист перезвонит Вам в тесении 5 минут</p>
-            <div class="form_input">
-              <div class="form_input_icon"><i class="fas fa-mobile-alt"></i></div>
-              <input type="hidden" name="name_product">
-              <div class="form_input_text"><input type="text" name="phone" placeholder="+380 (__) __ __ ___" required=""></div>
-            </div>
-            <div class="form_btn">
-              <a href="#" class="btn">Отправить</a>
-            </div>
-          </div>
-      </div>
 <?php
     }else{
 ?>
