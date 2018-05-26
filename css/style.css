@@ -761,6 +761,7 @@ footer .hot_phone{
     text-align: center;
     font-size: 18px;
     font-family: 'Museo300';
+    min-height: 38px;
 }
 
 .catalog_item h3 a{

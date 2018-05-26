@@ -1,31 +1,67 @@
 <?php 
     get_header();
-
     if (defined( 'FW' )){
         $kdv_count_tovar_on_page = fw_get_db_settings_option('kdv_count_tovar_on_page');
-        $kdv_phone_header  = fw_get_db_settings_option('kdv_phone_header');
+        $kdv_phone_header        = fw_get_db_settings_option('kdv_phone_header');
     }
-
     $taxonomy= get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-    //print_r($taxonomy);
+
     $count_tovar = 1;
     $count_tovar_hide = 1;
     $hide_tovar_class = ' show_row';
+    $args_posts_tovar = array(
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'cat_tovar',
+                'field' => 'slug',
+                'terms' => $taxonomy->slug
+            )
+        ),
+        'post_type' => 'tovar',
+        'posts_per_page' => -1
+    );
+
+    $posts_tovar = query_posts($args_posts_tovar);
+
+    //print_r($posts_tovar);
+
     if($taxonomy->taxonomy == 'cat_tovar'){
 ?>
       <section id="catalog">
         <div class="container">
           <div class="breadcrumbs bold_500">
             <?php if( function_exists('kama_breadcrumbs') ) kama_breadcrumbs(' / '); ?>
-          </div>
+            </div>
           <h1><?php echo $taxonomy->name; ?></h1>
-            <?php if (have_posts()) : while (have_posts()) : the_post(); // если посты есть - запускаем цикл wp ?>
+            <?php if(count($posts_tovar) > 0){ foreach($posts_tovar as $posts_tovar_item){ ?>
             <?php if($count_tovar_hide > $kdv_count_tovar_on_page){$hide_tovar_class = ' hide_row'; $data_humber = ' data-number="' . $count_tovar_hide . '"';} $count_tovar_hide++?>
             <?php if($count_tovar == 1){echo '<div class="row' . $hide_tovar_class . '"' . $data_humber . '>'; } $count_tovar++; ?>
-                <?php get_template_part('loop_tovar'); // для отображения каждой записи берем шаблон loop.php ?>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="catalog_item" id="post-<?php echo $posts_tovar_item->ID; ?>">
+                        <div class="catalog_item_img">
+                            <a href="<?php echo get_permalink($posts_tovar_item->ID); ?>">
+                                <?php the_post_thumbnail('tovar-thumb'); ?>
+                            </a>
+                        </div>
+                        <?php 
+                            if (defined( 'FW' )){
+                                $kdv_tovar_price = fw_get_db_post_option($posts_tovar_item->ID, 'kdv_tovar_price');
+                                $kdv_tovar_box = fw_get_db_post_option($posts_tovar_item->ID, 'kdv_tovar_box');
+                            }
+                        ?>
+                        <h3><a href="<?php echo get_permalink($posts_tovar_item->ID); ?>" data-name-product="<?php echo $posts_tovar_item->post_title; ?>"><?php echo $posts_tovar_item->post_title; ?></a></h3>
+                        <div class="catalog_item_content">
+                          <div class="catalog_item_price"><?php echo $kdv_tovar_price; ?></div>
+                          <p><?php echo $kdv_tovar_box; ?></p>
+                          <a class="catalog_item_cart" data-fancybox data-src="#call_back_hidden_product" href="javascript:;">
+                            <i class="fas fa-shopping-cart"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
             <?php if($count_tovar == 5 || $taxonomy->count == $count_tovar_hide - 1){echo '</div>'; $count_tovar = 1;}?>
-            <?php endwhile; // конец цикла ?>
-            <?php else: echo '<h2>Товаров нет</h2>'; endif; // если записей нет, напишим "простите" ?>
+            <?php } ?>
+            <?php }else{ echo '<h2>Товаров нет</h2>'; } ?>
             <?php if($taxonomy->count > $kdv_count_tovar_on_page){ ?>
           <div class="more_product_catalog">
             <a href="" class="btn more" data-show-row="<?php echo $kdv_count_tovar_on_page*2; ?>" data-count-tovar="<?php echo $kdv_count_tovar_on_page; ?>"><i class="fas fa-sync-alt"></i>Ещё <span><?php echo $taxonomy->count - $kdv_count_tovar_on_page; ?></span> товаров</a>
