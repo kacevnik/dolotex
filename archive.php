@@ -17,7 +17,7 @@
         <div class="container">
           <div class="breadcrumbs bold_500">
             <?php if( function_exists('kama_breadcrumbs') ) kama_breadcrumbs(' / '); ?>
-            </div>
+          </div>
           <h1><?php echo $taxonomy->name; ?></h1>
             <?php if (have_posts()) : while (have_posts()) : the_post(); // если посты есть - запускаем цикл wp ?>
             <?php if($count_tovar_hide > $kdv_count_tovar_on_page){$hide_tovar_class = ' hide_row'; $data_humber = ' data-number="' . $count_tovar_hide . '"';} $count_tovar_hide++?>
