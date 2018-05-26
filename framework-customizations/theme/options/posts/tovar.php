@@ -268,7 +268,21 @@ $options = array(
                         'show_borders' => false,
                     )
                 )
-            )
+            ),
+
+            'kdv_tovar_title_video' => array(
+                'type'  => 'text',
+                'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+                'label' => __('Заголовок видео', '{domain}'),
+                'desc'  => __('Укажите заголовок для блока видео', '{domain}')
+            ),            
+
+            'kdv_tovar_url_video' => array(
+                'type'  => 'text',
+                'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+                'label' => __('URL видео', '{domain}'),
+                'desc'  => __('Укажите URL видео на YouTube', '{domain}')
+            ),
         )
     )
 );

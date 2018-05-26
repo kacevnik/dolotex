@@ -1,10 +1,3 @@
-<?php 
-    if (defined( 'FW' )){
-        $kdv_big_sale_form = fw_get_db_settings_option('kdv_big_sale_form');
-        $kdv_big_sale_form_2 = fw_get_db_settings_option('kdv_big_sale_form_2');
-    }
-?>
-
 <?php get_header(); ?>
       <section id="main" class="pb_65 pt_55">
         <div class="main_top">

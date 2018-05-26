@@ -1,12 +1,20 @@
 <?php
     if (defined( 'FW' )){
-        $kdv_tovar_price     = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_price');
-        $kdv_tovar_box       = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_box');
-        $kdv_tovar_tu        = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_tu');
-        $kdv_slider_tovar    = fw_get_db_post_option(get_the_ID(), 'kdv_slider_tovar');
-        $kdv_tabs_tovar      = fw_get_db_post_option(get_the_ID(), 'kdv_tabs_tovar');
-        $kdv_tovar_more      = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_more');
-        $arr_kdv_tovar_more  = array();
+        $kdv_tovar_price        = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_price');
+        $kdv_tovar_box          = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_box');
+        $kdv_tovar_tu           = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_tu');
+        $kdv_slider_tovar       = fw_get_db_post_option(get_the_ID(), 'kdv_slider_tovar');
+        $kdv_tabs_tovar         = fw_get_db_post_option(get_the_ID(), 'kdv_tabs_tovar');
+        $kdv_tovar_more         = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_more');
+        $kdv_tovar_title_video  = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_title_video');
+        $kdv_tovar_url_video    = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_url_video');
+
+        $kdv_on_line_name       = fw_get_db_settings_option('kdv_on_line_name');
+        $kdv_on_line_dolg       = fw_get_db_settings_option('kdv_on_line_dolg');
+        $kdv_on_line_img        = fw_get_db_settings_option('kdv_on_line_img');
+        $kdv_on_line_text       = fw_get_db_settings_option('kdv_on_line_text');
+
+        $arr_kdv_tovar_more     = array();
 
         function f_array($arr){
             global $arr_kdv_tovar_more;
@@ -125,28 +133,31 @@
             </article>
         </div>
     </section>
+    <?php if($kdv_tovar_title_video && $kdv_tovar_url_video){ ?>
     <section id="product_video">
         <div class="container">
-          <h2>Видео инструкция по укладке пола Dolotex HIgitex</h2>
-          <div class="row">
-            <div class="col-md-8">
-            <a data-fancybox href="https://www.youtube.com/watch?v=A0FZIwabctw" class="product_video">
-              <img class="card-img-top img-fluid" src="http://img.youtube.com/vi/A0FZIwabctw/maxresdefault.jpg" />
-              <i class="far fa-play-circle"></i>
-            </a>
+            <h2><?php echo $kdv_tovar_title_video; ?></h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <a data-fancybox href="<?php echo $kdv_tovar_url_video; ?>" class="product_video">
+                        <?php $img_video = explode('?v=', $kdv_tovar_url_video); ?>
+                        <img class="card-img-top img-fluid" src="http://img.youtube.com/vi/<?php echo $img_video[1]; ?>/maxresdefault.jpg" />
+                        <i class="far fa-play-circle"></i>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="product_video_content">
+                        <h3><?php echo $kdv_on_line_name; ?></h3>
+                        <div class="sub_title bold500"><?php echo $kdv_on_line_dolg; ?></div>
+                        <img src="<?php echo $kdv_on_line_img['url']; ?>" alt="<?php echo $kdv_on_line_name; ?>">
+                        <p><?php echo $kdv_on_line_text; ?></p>
+                        <a data-fancybox data-src="#call_back_hidden" href="javascript:;" class="btn">Задать вопрос</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
-              <div class="product_video_content">
-                <h3>Иванов Алексей</h3>
-                <div class="sub_title bold500">Эксперт Dolotex</div>
-                <img src="img/otziv_face.png" alt="Иванов Алексей">
-                <p>Нажмите на кнопку <span class="bold500">задать вопрос</span>, в течении 15 минут с Вами свяжется эксперт и ответит на Ваши вопросы</p>
-                <a data-fancybox data-src="#call_back_hidden" href="javascript:;" class="btn">Задать вопрос</a>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
+    <?php } ?>
       <section id="product_answ" class="pt_55 pb_65">
         <div class="container">
           <h2>Остались вопросы?</h2>
