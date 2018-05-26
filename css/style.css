@@ -1255,6 +1255,19 @@ footer .hot_phone{
     display: block;
 }
 
+#thanks_popup{
+    width: 400px;
+}
+
+#thanks_popup h3{
+    text-align: center;
+    color: #bc0000;
+}
+
+#thanks_popup p{
+    text-align: center;
+}
+
 
 
 

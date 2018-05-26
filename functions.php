@@ -16,6 +16,25 @@ add_filter('category_link', create_function('$a', 'return str_replace("category/
 
 
 /**
+ * Настройка SMTP
+ *
+ * @param PHPMailer $phpmailer объект мэилера
+ */
+function mihdan_send_smtp_email( PHPMailer $phpmailer ) {
+  $phpmailer->isSMTP();
+  $phpmailer->Host       = get_option('mailserver_url');
+  $phpmailer->SMTPAuth   = true;
+  $phpmailer->Port       = get_option('mailserver_port');
+  $phpmailer->Username   = get_option('mailserver_login');
+  $phpmailer->Password   = get_option('mailserver_pass');
+  $phpmailer->SMTPSecure = 'ssl';
+  $phpmailer->From       = get_option('admin_email');
+  $phpmailer->FromName   = get_option('blogname');
+}
+add_action( 'phpmailer_init', 'mihdan_send_smtp_email' );
+
+
+/**
  * Хлебные крошки для WordPress (breadcrumbs)
  *
  * @param  string [$sep  = '']      Разделитель. По умолчанию ' » '
@@ -781,6 +800,7 @@ if (!function_exists('add_scripts')) { // если ф-я уже есть в до
         wp_enqueue_script('inputmask', get_template_directory_uri().'/js/jquery.inputmask.bundle.js','','',true); // Библиотека InputMask
         wp_enqueue_script('mmenu', get_template_directory_uri().'/js/jquery.mmenu.js','','',true); // Плагин бокового меню Mmenu
         wp_enqueue_script('owl-carousel', get_template_directory_uri().'/js/owl.carousel.min.js','','',true); // jQuery Карусель https://owlcarousel2.github.io/OwlCarousel2/ 
+        wp_enqueue_script('ajax-form', get_template_directory_uri().'/js/jquery.form.js','','',true); // AJAX отправка форм в соответствующий файл. 
         wp_enqueue_script('main', get_template_directory_uri().'/js/main.js','','',true); // основные скрипты шаблона
     }
 }

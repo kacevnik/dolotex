@@ -6,7 +6,7 @@
     }
 
     $taxonomy= get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-    print_r($taxonomy);
+    //print_r($taxonomy);
     $count_tovar = 1;
     $count_tovar_hide = 1;
     $hide_tovar_class = ' show_row';
@@ -69,6 +69,20 @@
           </div>
         </div>
       </section>
+    <div id="call_back_hidden_product">
+          <div class="form">
+            <h3>Укажите номер</h3>
+            <p>и наш специалист перезвонит Вам в тесении 5 минут</p>
+            <div class="form_input">
+              <div class="form_input_icon"><i class="fas fa-mobile-alt"></i></div>
+              <input type="hidden" name="name_product">
+              <div class="form_input_text"><input type="text" name="phone" placeholder="+380 (__) __ __ ___" required=""></div>
+            </div>
+            <div class="form_btn">
+              <a href="#" class="btn">Отправить</a>
+            </div>
+          </div>
+      </div>
 <?php
     }else{
 ?>

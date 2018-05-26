@@ -29,6 +29,14 @@
         return false;
       });
 
+      //Иницилизация и отправка плагина AjaxForm отправки даных из форм
+      $('form').ajaxForm(function(){
+        //$("a[title='Close']").trigger("click");
+        $('form').clearForm();
+        $(".fancybox-close-small").trigger("click");
+        $("#thanks_link").trigger("click");
+      });
+
       $('.obj_item').click(function(){
          $('.object_check_tab').hide();
          $('.obj_item').removeClass('active');

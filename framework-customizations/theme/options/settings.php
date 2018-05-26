@@ -98,21 +98,6 @@
                     'extra_mime_types' => array( 'audio/x-aiff, aif aiff' )
                 ),
 
-                'kdv_call_back_form' => array(
-                    'type'  => 'select',
-                    'value' => 'choice-3',
-                    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-                    'label' => __('Форма обратного звонка', '{domain}'),
-                    'desc'  => __('Выбирите форму обратного звонка', '{domain}'),
-                    'help'  => __('Выбирите форму обратного звонка плагина Contact Form 7', '{domain}'),
-                    'choices' => $posts_cf_7,
-                    /**
-                     * Allow save not existing choices
-                     * Useful when you use the select to populate it dynamically from js
-                     */
-                    'no-validate' => false,
-                ),
-
                 'kdv_big_sale_form' => array(
                     'type'  => 'select',
                     'value' => 'choice-3',
@@ -154,78 +139,19 @@
             'title' => __('Настройки главной', '{domain}'),
             'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
         ),
-        'kdv_tap_gallary_post_new' => array(
+        'kdv_tap_email_settings' => array(
             'type' => 'tab',
             'options' => array(
-                'kdv_gallery_off'  => array(
-                    'type'  => 'switch',
-                    'value' => true, // checked/unchecked
-                    'label' => __('Включть галерею', '{domain}'),
-                    'desc'  => __('', '{domain}'),
-                    'help'  => __('Если включить, то галерея будет отражаться на главной странице', '{domain}')
-                ),
-
-                'kdv_gallery_background' => array(
-                    'type'  => 'upload',
-                    'value' => array(
-                        /*
-                        'attachment_id' => '9',
-                        'url' => '//site.com/wp-content/uploads/2014/02/whatever.jpg'
-                        */
-                        // if value is set in code, it is not considered and not used
-                        // because there is no sense to set hardcode attachment_id
-                    ),
-                    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-                    'label' => __('Фон секции', '{domain}'),
-                    'desc'  => __('', '{domain}'),
-                    'help'  => __('Загрузите задний фон для секции галереи (разрешенные файлы для загрузки: jpg, png, gif), требуемые размеры ВхШ (850Х1920)', '{domain}'),
-                    /**
-                     * If set to `true`, the option will allow to upload only images, and display a thumb of the selected one.
-                     * If set to `false`, the option will allow to upload any file from the media library.
-                     */
-                    'images_only' => true,
-                    /**
-                     * An array with allowed files extensions what will filter the media library and the upload files.
-                     */
-                    'files_ext' => array( 'jpg', 'png', 'gif' ),
-                    /**
-                     * An array with extra mime types that is not in the default array with mime types from the javascript Plupload library.
-                     * The format is: array( '<mime-type>, <ext1> <ext2> <ext2>' ).
-                     * For example: you set rar format to filter, but the filter ignore it , than you must set
-                     * the array with the next structure array( '.rar, rar' ) and it will solve the problem.
-                     */
-                    'extra_mime_types' => array( 'audio/x-aiff, aif aiff' )
-                ),
-
-                'kdv_gallery_category' => array(
-                    'type'  => 'select',
-                    'value' => 'choice-3',
-                    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-                    'label' => __('Рубрика', '{domain}'),
-                    'desc'  => __('', '{domain}'),
-                    'help'  => __('Выберите рубрику, посты каторой будут показываться.', '{domain}'),
-                    'choices' => $res_category_list,
-                    'no-validate' => false,
-                ),
-
-                'kdv_gallery_count_items' => array(
+                'kdv_email_set_admin' => array(
                     'type'  => 'text',
-                    'value' => '7',
-                    'label' => __('Максимальное количество слайдов', '{domain}'),
-                    'desc'  => __('', '{domain}'),
-                    'help'  => __('Задайте максимальное количество слайдов для галереи.', '{domain}'),
-                ),
-
-                'kdv_gallery_speed' => array(
-                    'type'  => 'text',
-                    'value' => '500',
-                    'label' => __('Скорость анимации переходов', '{domain}'),
-                    'desc'  => __('', '{domain}'),
-                    'help'  => __('Задайте скорость анимации переходов для галереи при ручном перелистывании. (указать в милисекундах)', '{domain}'),
+                    'value' => '',
+                    'label' => __('Admin E-mail', '{domain}'),
+                    'desc'  => __('Задайте E-mail администратора', '{domain}'),
+                    'help'  => __('', '{domain}'),
                 )
 
             ),
-            'title' => __('Галерея постов', '{domain}'),
+            'title' => __('Настройка почты', '{domain}'),
             'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
         ),
     );

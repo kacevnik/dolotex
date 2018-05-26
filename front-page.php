@@ -150,7 +150,24 @@
               </div>
             </div>
             <div class="col-md-4">
-                <?php echo do_shortcode($kdv_big_sale_form); ?>
+            <div class="form">
+                <h3>Заполните форму</h3>
+                <p>и узнайте сколько составит ваша экономия!</p>
+                <div class="form_input">
+                    <form method="post" action="<?php echo get_template_directory_uri(); ?>/send.php">
+                      <div class="form_input_icon"><i class="fas fa-mobile-alt"></i></div>
+                      <input type="hidden" name="form" value="Большие объемы? Большие скидки!">
+                      <div class="form_input_text"><input type="text" name="phone" placeholder="+380 (__) __ __ ___" required="" autocomplete="off"></div>
+                    </div>
+                    <div class="form_input">
+                      <div class="form_input_icon"><i class="far fa-envelope"></i></div>
+                      <div class="form_input_text"><input type="text" name="email" placeholder="Ваша почта" required="" autocomplete="off"></div>
+                    </div>
+                    <div class="form_btn">
+                      <input type="submit" name="submit" value="Оставить заявку" class="btn">
+                    </div>
+                    </form>
+              </div>
             </div>
           </div>
         </div>
@@ -254,7 +271,24 @@
               </div>
             </div>
             <div class="col-md-4">
-                <?php echo do_shortcode($kdv_big_sale_form_2); ?>
+                <form action="<?php echo get_template_directory_uri(); ?>/send.php" method="post">
+                    <div class="form">
+                        <h3>Заполните форму</h3>
+                        <p>и узнайте сколько составит ваша экономия!</p>
+                        <div class="form_input">
+                          <div class="form_input_icon"><i class="fas fa-mobile-alt"></i></div>
+                          <div class="form_input_text"><input type="text" name="phone" placeholder="+380 (__) __ __ ___" required="" autocomplete="off"></div>
+                        </div>
+                        <div class="form_input">
+                          <div class="form_input_icon"><i class="far fa-envelope"></i></div>
+                          <input type="hidden" name="form" value="Форма - получить скидку">
+                          <div class="form_input_text"><input type="text" name="email" placeholder="Ваша почта" required="" autocomplete="off"></div>
+                        </div>
+                        <div class="form_btn">
+                          <input type="submit" name="submit" class="btn">
+                        </div>
+                    </div>
+                </form>
             </div>
           </div>
         </div>
