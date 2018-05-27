@@ -81,7 +81,11 @@ h2{
     font-family: 'Museo500';
 }
 
-.bold500{
+.bold900{
+    font-family: 'Museo900';
+}
+
+.bold300{
     font-family: 'Museo300';
 }
 
@@ -1348,6 +1352,73 @@ footer .hot_phone{
     height: 0;
     display: inline-block;
     margin: 0px 0 -2px 5px;
+}
+
+#category{
+    background: #f7f7f7;
+    padding: 40px 0 65px 0;
+}
+
+#category h1{
+    font-size: 36px;
+    text-align: center;
+    margin: 30px 0 40px 0;
+}
+
+.item_post{
+    margin-bottom: 30px;
+}
+
+#category .item_post a{
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+#category .item_post img{
+    width: 100%;
+}
+
+#category .item_post .item_post_title{
+    color: #000000;
+    font-size: 18px;
+    margin: 10px 0;
+    display: block;
+    min-height: 46px;
+    line-height: 1.3;
+}
+
+#category .item_post .item_post_title:hover{
+    color: #bc0000;
+}
+
+#category .item_post .item_post_title_content{
+    color: #7b7b7b;
+    font-size: 14px;
+}
+
+#category .item_post_info{
+    color: #ffffff;
+    font-family: 'Museo300';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0);
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.5)));
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#000000', GradientType=0);
+}
+
+#category .item_post_info:hover{
+    color: #ffffff
 }
 
 

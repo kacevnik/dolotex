@@ -10,6 +10,7 @@ add_image_size('big-thumb', 400, 400, true); // Ещё один размер м�
 add_image_size('project-thumb', 670, 430, true); // Ещё один размер миниатюры
 add_image_size('client-thumb', 355, 230, true); // Ещё один размер миниатюры
 add_image_size('tovar-thumb', 190, 180, true); // Ещё один размер миниатюры
+add_image_size('post-thumb', 360, 225, true); // Миниатюра поста на странице категорий
 
 //Удаляем category из УРЛа категорий
 add_filter('category_link', create_function('$a', 'return str_replace("category/", "", $a);'), 9999);
@@ -285,7 +286,7 @@ class Kama_Breadcrumbs {
                 else {
                     if( ! $out = apply_filters('term_tax_crumbs', '', $term, $this ) ){
                         $_crumbs = $this->_tax_crumbs( $term, 'parent' );
-                        $out = $this->_add_title( $_crumbs, $term, esc_html($term->name) );                     
+                        $out = $this->_add_title( $_crumbs, $term, esc_html($term->name) );
                     }
                 }
             }

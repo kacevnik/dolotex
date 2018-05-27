@@ -23,7 +23,8 @@
 
     $posts_tovar = query_posts($args_posts_tovar);
 
-    //print_r($posts_tovar);
+    //echo count($posts_tovar);
+    //print_r($taxonomy);
 
     if($taxonomy->taxonomy == 'cat_tovar'){
 ?>
@@ -59,12 +60,12 @@
                         </div>
                       </div>
                     </div>
-            <?php if($count_tovar == 5 || $taxonomy->count == $count_tovar_hide - 1){echo '</div>'; $count_tovar = 1;}?>
+            <?php if($count_tovar == 5 || count($posts_tovar) == $count_tovar_hide - 1){echo '</div>'; $count_tovar = 1;}?>
             <?php } ?>
             <?php }else{ echo '<h2>Товаров нет</h2>'; } ?>
-            <?php if($taxonomy->count > $kdv_count_tovar_on_page){ ?>
+            <?php if(count($posts_tovar) > $kdv_count_tovar_on_page){ ?>
           <div class="more_product_catalog">
-            <a href="" class="btn more" data-show-row="<?php echo $kdv_count_tovar_on_page*2; ?>" data-count-tovar="<?php echo $kdv_count_tovar_on_page; ?>"><i class="fas fa-sync-alt"></i>Ещё <span><?php echo $taxonomy->count - $kdv_count_tovar_on_page; ?></span> товаров</a>
+            <a href="" class="btn more" data-show-row="<?php echo $kdv_count_tovar_on_page*2; ?>" data-count-tovar="<?php echo $kdv_count_tovar_on_page; ?>"><i class="fas fa-sync-alt"></i>Ещё <span><?php echo count($posts_tovar) - $kdv_count_tovar_on_page; ?></span> товаров</a>
           </div>
           <?php } ?>
         </div>

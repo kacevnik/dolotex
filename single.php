@@ -23,24 +23,31 @@
             foreach($arr as $key => $value){
                 if (is_array($value)){
                     f_array($value);
-            }else{
-                if($value == 1){
-                    $arr_kdv_tovar_more[] = $key;
+                }else{
+                    if($value == 1){
+                        $arr_kdv_tovar_more[] = $key;
+                    }
                 }
             }
         }
+
+        f_array($kdv_tovar_more);
+
     }
 
-    f_array($kdv_tovar_more);
-
-    }
 ?>
 <?php get_header(); ?>
     <section id="product">
         <div class="container">
+            <?php if($post->post_type == 'tovar'){ ?>
+            <div class="breadcrumbs bold_500">
+                <span><a href="<?php echo get_home_url(); ?>">Главная</a></span> / <span><?php echo get_the_term_list( $post->ID, 'cat_tovar', '', ',', '' ); ?></span> / <span class="kb_title"><?php echo $post->post_title; ?></span>
+            </div>
+            <?php }else{ ?>
             <div class="breadcrumbs bold_500">
                 <?php if( function_exists('kama_breadcrumbs') ) kama_breadcrumbs(' / '); ?>
             </div>
+            <?php } ?>
             <h1><?php the_title(); ?></h1>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <div class="product_item">
@@ -207,4 +214,5 @@
                 </div>
             </div>
       </section>
+       <section>
 <?php get_footer(); ?>
