@@ -502,13 +502,14 @@ function kdv_footer_info(){
 
 add_action( 'wp_footer', 'kdv_footer_info' );
 
-function pagination() { // функция вывода пагинации
+function pagination($is_page=1) { // функция вывода пагинации
     global $wp_query; // текущая выборка должна быть глобальной
     $big = 999999999; // число для замены
+    if(!$is_page){$is_page = 1;}
     echo paginate_links(array( // вывод пагинации с опциями ниже
         'base' => str_replace($big,'%#%',esc_url(get_pagenum_link($big))), // что заменяем в формате ниже
         'format' => '?paged=%#%', // формат, %#% будет заменено
-        'current' => max(1, get_query_var('paged')), // текущая страница, 1, если $_GET['page'] не определено
+        'current' => max($is_page, get_query_var('paged')), // текущая страница, 1, если $_GET['page'] не определено
         'type' => 'list', // ссылки в ul
         'prev_text'    => 'Назад', // текст назад
         'next_text'    => 'Вперед', // текст вперед
@@ -522,6 +523,7 @@ function pagination() { // функция вывода пагинации
         'after_page_number' => '' // строка после цифры
     ));
 }
+
 
     add_action('init', 'create_taxonomy_project');
     function create_taxonomy_project(){
@@ -800,6 +802,29 @@ if (!function_exists('add_styles')) { // если ф-я уже есть в до�
         wp_enqueue_style( 'media-css', get_template_directory_uri().'/css/media.css' ); // адаптация стилей
     }
 }
+
+function remove_page_from_query_string($query_string)
+{ 
+    if ($query_string['name'] == 'page' && isset($query_string['page'])) {
+        unset($query_string['name']);
+        list($delim, $page_index) = split('/', $query_string['page']);
+        $query_string['paged'] = $page_index;
+    }      
+    return $query_string;
+}
+add_filter('request', 'remove_page_from_query_string');
+ 
+function fix_category_pagination($qs){
+    if(isset($qs['category_name']) && isset($qs['paged'])){
+        $qs['post_type'] = get_post_types($args = array(
+            'public'   => true,
+            '_builtin' => false
+        ));
+        array_push($qs['post_type'],'post');
+    }
+    return $qs;
+}
+add_filter('request', 'fix_category_pagination');
 
 require (get_template_directory().'/tgm/custom_theme.php');
 ?>

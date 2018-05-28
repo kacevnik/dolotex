@@ -50,6 +50,7 @@
             <?php } ?>
             <h1><?php the_title(); ?></h1>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <?php if($post->post_type == 'tovar'){ ?>
                 <div class="product_item">
                     <div class="row">
                         <div class="col-md-4">
@@ -139,6 +140,13 @@
                     </div>
                 </div>
               <?php } ?>
+            <?php }else{ ?>
+                <div class="product_item">
+                    <div class="content">
+                        <?php the_content(); ?>
+                    </div>
+                </div>
+            <?php } ?>
             </article>
         </div>
     </section>

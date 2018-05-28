@@ -1,6 +1,9 @@
-<?php get_header(); ?>
+<?php get_header(); print_r($wp_query->query['page']); ?>
     <section id="category">
         <div class="container">
+            <div class="breadcrumbs bold_500">
+                <?php if( function_exists('kama_breadcrumbs') ) kama_breadcrumbs(' / '); ?>
+            </div>
             <h1 class="bold700"><?php single_cat_title(); // название категории ?></h1>
             <div class="row">
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -17,9 +20,11 @@
                     </article>
                 </div>
                 <?php endwhile; 
-                else: echo '<h2>Нет записей Категория.</h2>'; endif;  ?>  
+                else: echo '<h2>Нет записей Категория.</h2>'; endif;  ?>
+                <div class="pogin">
+                    <?php pagination($wp_query->query['page']); ?>
+                </div>
             </div>
         </div>
     </section>
-<?php pagination(); // пагинация, функция нах-ся в function.php ?>
 <?php get_footer(); ?>
