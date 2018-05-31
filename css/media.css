@@ -103,6 +103,12 @@
     #main h1{
         font-size: 32px;
     }
+
+    .sistem_wraper {
+        padding-right: 5px;
+        padding-left: 5px;
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 500px){
@@ -184,6 +190,12 @@
 
     #product {
         padding-bottom: 40px;
+    }
+
+    .sistem_wraper {
+        width: 33.333%;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 

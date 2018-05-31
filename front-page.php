@@ -38,8 +38,8 @@
       </section>
       <section id="objects" class="pt_90 pb_65">
         <div class="container">
-          <h2>Выбор подходящего промышленного пола</h2>
-          <div class="sub_title">Выберите объект</div>
+          <h2>Выбор подходящей системы</h2>
+          <div class="sub_title">Выберите систему полов</div>
           <div class="row">
             <?php
                 $args_category_list = array(
@@ -53,26 +53,26 @@
                     'exclude'      => '',
                     'include'      => '',
                     'number'       => 0,
-                    'taxonomy'     => 'cat_projects',
+                    'taxonomy'     => 'cat_sistem',
                     'pad_counts'   => false,
                 );
 
-                $category_project_list = get_categories( $args_category_list );
+                $category_sistem_list = get_categories( $args_category_list );
 
             ?>
             <?php  
-                foreach ($category_project_list as $category_project_list_item) { 
+                foreach ($category_sistem_list as $category_sistem_list_item) { 
 
                 if (defined( 'FW' )){
-                    $kdv_category_project_icon = fw_get_db_term_option($category_project_list_item->term_id, 'cat_projects', 'kdv_category_project_icon');
+                    $kdv_category_sistem_icon = fw_get_db_term_option($category_sistem_list_item->term_id, 'cat_sistem', 'kdv_category_sistem_icon');
                 }
             ?>
-            <div class="col-xs-6 col-sm-4 col-md-2">
-              <a href="#" class="obj_item" data-tab="<?php echo $category_project_list_item->term_id; ?>">
+            <div class="sistem_wraper">
+              <a href="#" class="obj_item" data-tab="<?php echo $category_sistem_list_item->term_id; ?>">
                 <div class="obj_item_img">
-                  <img src="<?php echo $kdv_category_project_icon['url']; ?>" alt="<?php echo $category_project_list_item->name; ?>">
+                  <img src="<?php echo $kdv_category_sistem_icon['url']; ?>" alt="<?php echo $category_sistem_list_item->name; ?>">
                 </div>
-                <div class="obj_item_title"><?php echo $category_project_list_item->name; ?></div>
+                <div class="obj_item_title"><?php echo $category_sistem_list_item->name; ?></div>
                 <i class="far fa-check-circle"></i>
               </a>
             </div>
@@ -84,48 +84,54 @@
         <div class="container">
             <?php
                 global $post;
-                $count_category_project = 1;
-                foreach ($category_project_list as $category_project_list_item) { 
+                $count_category_sistem = 1;
+                foreach ($category_sistem_list as $category_sistem_list_item) { 
             ?>
-          <div id="tab_object_check_<?php echo $category_project_list_item->term_id; ?>" class="object_check_tab"<?php if($count_category_project == 1){echo ' style="display: block;"'; } ?>>
+          <div id="tab_object_check_<?php echo $category_sistem_list_item->term_id; ?>" class="object_check_tab"<?php if($count_category_sistem == 1){echo ' style="display: block;"'; } ?>>
             <?php
-                $args_posts_projects = array(
-                    'tax_query' => array(
+
+                $id_taxonomy = $category_sistem_list_item->term_id;
+
+                $wp_query_sistem = get_posts(array(
+                  'post_type' => 'sistem',
+                  'posts_per_page' => -1,
+                  'tax_query' => array(
                         array(
-                            'taxonomy' => 'cat_projects',
-                            'terms' => array( 6 )
+                            'taxonomy' => 'cat_sistem',
+                            'field'    => 'term_id',
+                            'terms'    => $id_taxonomy
                         )
                     ),
-                    'post_type' => 'project',
-                    'posts_per_page' => -1
-                );
 
-                $posts_projects = query_posts($args_posts_projects);
-                $count_posts_projects_item = 1;
-                //print_r($posts_projects);
-                foreach ($posts_projects as $posts_projects_item) {
+                ));
+
+
+                //print_r($wp_query_sistem);
+
+                $count_posts_sistem_item = 1;
+                foreach ($wp_query_sistem as $posts_sistem_item) {
             ?>
-            <div class="obj_check_item<?php echo ($count_posts_projects_item & 1) ? ' odd' : ' even' ?>">
+            <div class="obj_check_item<?php echo ($count_posts_sistem_item & 1) ? ' odd' : ' even' ?>">
               <div class="obj_check_item_img">
-                <?php echo get_the_post_thumbnail( $posts_projects_item->ID, 'project-thumb' ); ?>
+                <?php echo get_the_post_thumbnail( $posts_sistem_item->ID, 'project-thumb' ); ?>
             </div>
               <div class="obj_check_item_content">
-                <h5><?php echo $posts_projects_item->post_title; ?></h5>
+                <h5><?php echo $posts_sistem_item->post_title; ?></h5>
                 <p>
-                  <?php echo $posts_projects_item->post_content; ?>
+                  <?php echo $posts_sistem_item->post_content; ?>
                 </p>
                 <?php
                     if (defined( 'FW' )){
-                        $kdv_project_aq = fw_get_db_post_option($posts_projects_item->ID, 'kdv_project_aq');
+                        $kdv_sistem_aq = fw_get_db_post_option($posts_sistem_item->ID, 'kdv_sistem_aq');
                     }
                 ?>
-                <span><i class="fas fa-arrows-alt-v"></i><?php echo $kdv_project_aq; ?></span>
-                <div class="obj_check_item_btn"><a href="" class="btn"><i class="fas fa-file-alt"></i>Расчет стоимости</a></div>
+                <span><i class="fas fa-arrows-alt-v"></i><?php echo $kdv_sistem_aq; ?></span>
+                <div class="obj_check_item_btn"><a href="<?php echo get_the_permalink($posts_sistem_item->ID); ?>" class="btn"><i class="fas fa-file-alt"></i>Расчет стоимости</a></div>
               </div>
             </div>
-            <?php $count_posts_projects_item++; } ?>
+            <?php $count_posts_sistem_item++; } ?>
           </div>
-          <?php $count_category_project++; } ?>
+          <?php $count_category_sistem++; } ?>
         </div>
       </section>
       <section id="sale" class="bonus pt_55 pb_65">
