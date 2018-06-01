@@ -1485,6 +1485,85 @@ footer .hot_phone{
     background: rgba(188, 0, 0, 0.08);;
 }
 
+.sistem{
+    padding: 0 40px 60px 40px;
+}
+
+.sistem_wraper_post{
+    overflow: hidden;
+    margin-top: 30px;
+    background: #ffffff;
+    border-radius: 8px;
+    -o-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    padding: 0 35px 35px 35px;
+    box-shadow: 0px 0px 20px 6px #00000036;
+    -o-box-shadow: 0px 0px 20px 6px #00000036;
+    -moz-box-shadow: 0px 0px 20px 6px #00000036;
+    -webkit-box-shadow: 0px 0px 20px 6px #00000036;
+}
+
+.sistem h2{
+    font-size: 36px;
+    color: #bc0000;
+    margin-top: 35px;
+}
+
+.sistem .sub_title{
+    text-align: center;
+    font-size: 24px;
+    margin: 0 0 40px 0;
+}
+
+.sistem h4{
+    font-size: 22px;
+    font-family: 'Museo700';
+    margin: 0;
+}
+
+.sistem h4 span{
+    font-size: 42px;
+    font-family: 'Museo900';
+    color: #bc0000;
+}
+
+.sistem input.input_sistem{
+    width: 80%;
+    border-radius: 50px;
+    -o-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border: 1px solid #cccccc;
+    height: 50px;
+    font-size: 22px;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+
+.sistem .product_price{
+    border: 8px solid #bc0000;
+}
+
+.sistem .product_price_count{
+    font-size: 26px;
+    color: #bc0000;
+    font-family: 'Museo900';
+}
+
+.sistem .input_select{
+    border: 1px solid #cccccc;
+    height: 45px;
+    border-radius: 45px;
+    width: 90%;
+    margin: 13px 0;
+    font-size: 20px;
+}
+
+.sistem .input_select:active, .sistem .input_select:focus, .sistem .input_sistem:focus, .sistem .input_sistem:active{
+    outline: none;
+}
+
 
 
 
