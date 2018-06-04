@@ -70,7 +70,7 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="content">
-                                <?php the_content(); ?>
+                                <?php echo $post->post_content; ?>
                                 <?php if($kdv_tovar_tu['url']){ ?>
                                     <a href="<?php echo $kdv_tovar_tu['url']; ?>" class="download_tu bold500"><i class="fas fa-file-alt"></i>Скачать ТУ</a>
                                 <?php } ?>
@@ -143,7 +143,7 @@
             <?php }else{ ?>
                 <div class="product_item">
                     <div class="content">
-                        <?php the_content(); ?>
+                        <?php echo $post->post_content; ?>
                     </div>
                 </div>
             <?php } ?>

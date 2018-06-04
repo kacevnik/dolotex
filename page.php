@@ -9,6 +9,7 @@
             <div class="breadcrumbs bold_500">
                 <?php if( function_exists('kama_breadcrumbs') ) kama_breadcrumbs(' / '); ?>
             </div>
+            <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
             <h1><?php the_title(); ?></h1>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <div class="product_item">
@@ -17,6 +18,7 @@
                     </div>
                 </div>
             </article>
+            <?php endwhile; ?>
         </div>
     </section>
     <section id="product_answ" class="pt_55 pb_65">

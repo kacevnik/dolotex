@@ -32,6 +32,7 @@ Template Name: Шаблон страницы Контакты
             <div class="breadcrumbs bold_500">
                 <?php if( function_exists('kama_breadcrumbs') ) kama_breadcrumbs(' / '); ?>
             </div>
+            <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
             <div class="row">
                 <div class="col-md-6">
                     <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
@@ -76,9 +77,10 @@ Template Name: Шаблон страницы Контакты
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <?php the_content(); ?>
+                    <?php the_content();  ?>
                 </div>
             </div>
+            <?php endwhile; ?>
         </div>
     </section>
     <section id="contacts_answ">

@@ -4,9 +4,13 @@
     }
 ?>
 <?php get_header(); ?>
-          <section id="dilers">
+    <section id="dilers">
         <div class="container">
-            <?php the_content(); ?>
+            <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <?php the_content(); ?>
+            </article>
+            <?php endwhile; ?>
         </div>
-      </section>
+    </section>
 <?php get_footer(); ?>

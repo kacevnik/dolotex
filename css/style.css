@@ -1564,6 +1564,31 @@ footer .hot_phone{
     outline: none;
 }
 
+/*
+Reload plagins style
+*/
+.mm-listitem {
+    padding: 20px 0;
+    font-size: 40px;
+}
+
+.item_sistem{
+    background: #ffffff;
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 0px;
+    overflow: hidden;
+    margin: 0 0 35px 0;
+    border: 1px solid #ffffff;
+    min-height: 336px;
+}
+
+.item_sistem .catalog_item_content{
+    text-align: center;
+    padding: 0 0 20px 0;
+}
 
 
 
