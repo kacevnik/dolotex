@@ -151,7 +151,7 @@
                         <h3><a href="<?php echo get_permalink($posts_tovar_item->ID); ?>" data-name-product="<?php echo $posts_tovar_item->post_title; ?>"><?php echo $posts_tovar_item->post_title; ?></a></h3>
                         <div class="catalog_item_content">
                           <p><?php echo $kdv_tovar_box; ?></p>
-                          <a class="btn" href="">Сделать расчет</a>
+                          <a class="btn" href="<?php echo get_permalink($posts_tovar_item->ID); ?>">Сделать расчет</a>
                         </div>
                       </div>
                     </div>

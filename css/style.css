@@ -1590,6 +1590,41 @@ Reload plagins style
     padding: 0 0 20px 0;
 }
 
+#error_404_page{
+    background: #f7f7f7;
+    padding: 90px 0;
+    text-align: center;
+}
+
+.error_text{
+    font-family: 'Museo700';
+    text-transform: uppercase;
+}
+
+.text_1{
+    font-size: 58px;
+    margin-bottom: -54px;
+}
+
+.text_2{
+    font-size: 140px;
+}
+
+.text_3{
+    font-size: 47px;
+    margin-top: -53px;
+}
+
+.text_4{
+    font-size: 31px;
+    margin-top: -17px;
+}
+
+.btn.go_home{
+    padding: 10px 72px;
+    font-size: 20px;
+}
+
 
 
 
