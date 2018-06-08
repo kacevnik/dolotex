@@ -44,27 +44,20 @@
       });
 
       $('.obj_item').click(function(){
-         $('.object_check_tab').hide();
-         $('.obj_item').removeClass('active');
-         $('#tab_object_check_' + $(this).attr('data-tab')).fadeIn(500);
-         $(this).addClass('active');
-         return false;
+        $('.object_check_tab').hide();
+        $('.obj_item').removeClass('active');
+        $('#tab_object_check_' + $(this).attr('data-tab')).fadeIn(500);
+        $(this).addClass('active');
+        $('html, body').stop().animate({
+          scrollTop: $('#object_check').offset().top
+        }, 500);
+        return false;
       });
 
       $('.product_tabs a').click(function() {
          $('.product_tab_content').hide();
          $('#product_tab_' + $(this).attr('product-data-tab')).fadeIn(500);
          return false;
-      });
-
-      //Плавная прокрутка до заданного ID элемента
-      $("a[href*='#']").bind("click", function(e){
-        var anchor = $(this);
-        $('html, body').stop().animate({
-          scrollTop: $(anchor.attr('href')).offset().top
-        }, 500);
-        e.preventDefault();
-        return false;
       });
 
       $('.catalog_item_cart').click(function(){

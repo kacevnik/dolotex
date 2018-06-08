@@ -183,6 +183,10 @@ h2{
     padding: 10px 0 0 0;
 }
 
+.main_menu .dolotex_menu_parent>.sub-menu>.dolotex_menu_col>.sub-menu li.dolotex_menu_cat>a{
+    font-size: 16px;
+}
+
 .main_menu .dolotex_menu_parent>.sub-menu>.dolotex_menu_col>.sub-menu li:last-child{
     padding-bottom: 10px;
 }
@@ -1657,6 +1661,29 @@ Reload plagins style
 .btn.go_home{
     padding: 10px 72px;
     font-size: 20px;
+}
+
+.company{
+    padding: 40px 0 60px 0;
+}
+
+.company_form{
+    padding: 20px 0;
+}
+
+.company_form .btn{
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+.company_add{
+    padding: 70px 0;
+    border-bottom: 1px solid #f7f7f7;
+}
+
+.company_add h2{
+    margin: 0 0 55px 0;
+    padding: 0;
 }
 
 

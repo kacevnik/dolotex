@@ -374,6 +374,79 @@
             ),
             'title' => __('Контакты', '{domain}'),
             'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
+        ),
+
+        'dolotex_company' => array(
+            'type' => 'tab',
+            'options' => array(
+                'kdv_map_text' => array(
+                    'type'  => 'html',
+                    'label' => __('Внимание!', '{domain}'),
+                    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+                    'html'  => '<em>Для использования настроек страницы контакты следует создать "Страницу", и указать для нее шаблон "Шаблон страницы о компании". Только в этом случае применятся настройки для данной страницы.</em><br><em>Для вывода информации в основном блоке используйте визуальный редактор контента на созданной странице Контакты.</em>',
+                ),
+
+                'dolotex_company_add_section' => array(
+                    'type' => 'addable-popup',
+                    'value' => array(
+                        array(
+                            'title' => 'Лаборатория Dolotex',
+                            'content' => '',
+                        ),
+                        array(
+                            'title' => 'Производство Dolotex',
+                            'content' => '',
+                        ),
+                        array(
+                            'title' => 'Карта дилеров Dolotex',
+                            'content' => '',
+                        )
+                        // ...
+                    ),
+                    'label' => __('Добавить блок', '{domain}'),
+                    'desc'  => __('Вы можете добавить блок на страницу О Компании с произвольным заголовком и контентом.', '{domain}'),
+                    'template' => '{{- title }}',
+                    'popup-title' => null,
+                    'size' => 'large', // small, medium, large
+                    'limit' => 0, // limit the number of popup`s that can be added
+                    'add-button-text' => __('Добавить блок', '{domain}'),
+                    'sortable' => true,
+                    'popup-options' => array(
+                        'title' => array(
+                            'label' => __('Заголовок', '{domain}'),
+                            'type' => 'text',
+                        ),
+                        'content' => array(
+                            'type'  => 'wp-editor',
+                            'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+                            'label' => __('Контент', '{domain}'),
+                            'size' => 'large', // small, large
+                            'editor_height' => 300,
+                            'wpautop' => true,
+                            'editor_type' => false, // tinymce, html
+
+                            /**
+                             * By default, you don't have any shortcodes into the editor.
+                             *
+                             * You have two possible values:
+                             *   - false:   You will not have a shortcodes button at all
+                             *   - true:    the default values you provide in wp-shortcodes
+                             *              extension filter will be used
+                             *
+                             *   - An array of shortcodes
+                             */
+                            'shortcodes' => false // true, array('button', map')
+
+                            /**
+                             * Also available
+                             * https://github.com/WordPress/WordPress/blob/4.4.2/wp-includes/class-wp-editor.php#L80-L94
+                             */
+                        )
+                    )
+                )
+            ),
+            'title' => __('О компании', '{domain}'),
+            'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
         )
     );
 
