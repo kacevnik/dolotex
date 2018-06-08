@@ -96,19 +96,23 @@ h2{
 }
 
 .main_menu{
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.main_menu .sub-menu{
     list-style: none;
     padding: 0;
 }
 
 .main_menu li{
     float: left;
-    width: 14.285%;
+    width: 16.666%;
     text-align: center;
-    position: relative;
 }
 
 .main_menu li a{
-    position: relative;
     font-size: 18px;
     color: #000000;
 }
@@ -136,6 +140,115 @@ h2{
     -moz-transition: width 0.4s cubic-bezier(.47,-.41,.19,1.44);
     -webkit-transition: width 0.4s cubic-bezier(.47,-.41,.19,1.44);
 
+}
+
+.main_menu .dolotex_menu_parent>a{
+    display: block;
+    margin-bottom: 20px;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu{
+    display: none;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    background: #ffffff;
+    width: 80%;
+    left: 10%;
+    z-index: 1;
+    margin: 1px -15px 0 -15px;
+    border: 1px solid #d7d7d7;
+}
+
+.main_menu li a{
+    position: relative;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu li{
+    float: none;
+    width: 100%;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu>.dolotex_menu_col{
+    float: left;
+    padding: 10px 15px 10px 15px;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu>.dolotex_menu_col>.sub-menu li{
+    padding: 0;
+    text-align: left;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu>.dolotex_menu_col>.sub-menu li.dolotex_menu_cat{
+    padding: 10px 0 0 0;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu>.dolotex_menu_col>.sub-menu li:last-child{
+    padding-bottom: 10px;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu>.dolotex_menu_col>.sub-menu li.dolotex_menu_cat a{
+    text-transform: uppercase;
+    color: #bc0000;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu>.dolotex_menu_col>.sub-menu li a{
+    font-size: 14px;
+    font-family: "Museo500";
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu>.dolotex_menu_col>.sub-menu li a:hover{
+    color: #bc0000;
+    text-decoration: underline;
+}
+
+.main_menu .dolotex_menu_parent:after{
+    content: "";
+}
+
+.main_menu .dolotex_menu_parent:hover>a:after{
+    content: "";
+    background: url(../img/icon_arrow_menu.png);
+    height: 13px;
+    width: 24px;
+    display: block;
+    position: absolute;
+    bottom: -34px;
+    z-index: 2;
+    left: 50%;
+    margin-left: -12px;
+}
+
+.main_menu .dolotex_menu_parent:hover>.sub-menu{
+    display: block;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu>.dolotex_menu_col>.sub-menu li:hover a:before{
+    width: 0;
+}
+
+.main_menu .dolotex_menu_parent:hover>.sub-menu>.dolotex_menu_col>.sub-menu li a:before{
+    width: 0;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu>.dolotex_menu_col>a{
+    display: none;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu li.width_20{
+    width: 20%;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu li.width_25{
+    width: 25%;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu li.width_33{
+    width: 33.333%;
+}
+
+.main_menu .dolotex_menu_parent>.sub-menu li.width_50{
+    width: 50%;
 }
 
 .main_menu li:hover a:before{
@@ -1281,85 +1394,6 @@ footer .hot_phone{
 
 #thanks_popup p{
     text-align: center;
-}
-
-.main_menu .sub-menu{
-    display: none;
-    padding: 0;
-    list-style: none;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    -o-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    padding: 0 20px;
-    width: 260px;
-    position: absolute;
-    background: #f9f9f9;
-    z-index: 1;
-    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.35);
-    -o-box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.35);
-    -moz-box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.35);
-    -webkit-box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.35);
-    left: 50%;
-    margin-left: -130px;
-    top: 40px;
-}
-
-.main_menu .sub-menu:before{
-    content: " ";
-    border: 11px solid transparent;
-    border-bottom: 13px solid #f9f9f9;
-    display: block;
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: -24px;
-    left: 50%;
-    margin-left: -7px;
-}
-
-.main_menu .sub-menu li{
-    float: none;
-    width: 100%;
-    border-bottom: 2px solid #e6e6e6;
-    padding: 10px;
-}
-
-.main_menu .sub-menu li:last-child{
-    border-bottom: none;
-}
-
-.main_menu .sub-menu li a{
-    font-size: 16px;
-    font-family: "Museo300";
-}
-
-.main_menu .sub-menu li a:hover{
-    color: #bc0000;
-}
-
-.main_menu li:hover .sub-menu li a:before{
-    width: 0px;
-}
-
-.main_menu .sub-menu li:hover a:before{
-    width: 0px;
-}
-
-.main_menu .menu-item-has-children:hover .sub-menu{
-    display: block;
-}
-
-.main_menu .menu-item-has-children:after{
-    content: " ";
-    border: 4px solid transparent;
-    border-top: 6px solid #bc0000;
-    display: block;
-    width: 0;
-    height: 0;
-    display: inline-block;
-    margin: 0px 0 -2px 5px;
 }
 
 #category{

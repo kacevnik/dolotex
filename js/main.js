@@ -57,6 +57,16 @@
          return false;
       });
 
+      //Плавная прокрутка до заданного ID элемента
+      $("a[href*='#']").bind("click", function(e){
+        var anchor = $(this);
+        $('html, body').stop().animate({
+          scrollTop: $(anchor.attr('href')).offset().top
+        }, 500);
+        e.preventDefault();
+        return false;
+      });
+
       $('.catalog_item_cart').click(function(){
          $('[name="name_product"]').val($(this).parent().parent().find('[data-name-product]').html());
       });

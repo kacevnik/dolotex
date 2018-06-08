@@ -68,7 +68,7 @@
                 }
             ?>
             <div class="sistem_wraper">
-              <a href="#" class="obj_item" data-tab="<?php echo $category_sistem_list_item->term_id; ?>">
+              <a href="#object_check" class="obj_item" data-tab="<?php echo $category_sistem_list_item->term_id; ?>">
                 <div class="obj_item_img">
                   <img src="<?php echo $kdv_category_sistem_icon['url']; ?>" alt="<?php echo $category_sistem_list_item->name; ?>">
                 </div>
