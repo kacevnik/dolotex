@@ -8,6 +8,7 @@
         $kdv_tovar_more         = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_more');
         $kdv_tovar_title_video  = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_title_video');
         $kdv_tovar_url_video    = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_url_video');
+        $dolotex_sistem_promo   = fw_get_db_post_option(get_the_ID(), 'dolotex_sistem_promo');
 
         $kdv_on_line_name       = fw_get_db_settings_option('kdv_on_line_name');
         $kdv_on_line_dolg       = fw_get_db_settings_option('kdv_on_line_dolg');
@@ -168,7 +169,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <input type="submit" name="submit" value="Скачать расчет" class="btn" id="download_promo" data-url="http://dolotex.xn----ctbjagkqt6f8d.xn--p1ai/wp-content/uploads/2018/05/press-1.pdf">
+                                <input type="submit" name="submit" value="Скачать расчет" class="btn" id="download_promo" data-url="<?php echo $dolotex_sistem_promo['url']; ?>">
                             </div>
                         </div>
                     </div>
