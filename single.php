@@ -140,6 +140,39 @@
                     </div>
                 </div>
               <?php } ?>
+            <?php }elseif($post->post_type == 'sistem'){ ?>
+                <div class="sistem_product">
+                    <div class="product_item">
+                        <div class="content">
+                            <?php echo $post->post_content; ?>
+                        </div>
+                    </div>
+                    <a href="#form_pdf" class="sistem_product_more"><i class="fas fa-angle-down"></i></a>
+                </div>
+                <form action="<?php echo get_template_directory_uri(); ?>/send.php" method="post">
+                    <div class="form sistem_product_form form_pdf" id="form_pdf">
+                        <div class="row">
+                            <h3>Скачайте коммерческое предложение</h3>
+                            <div class="col-md-4">
+                                <div class="form_input">
+                                    <div class="form_input_icon"><i class="fas fa-user"></i></div>
+                                    <div class="form_input_text"><input type="text" name="name" placeholder="Ваше имя" required="" autocomplete="off"></div>
+                                    <input type="hidden" name="form" value="Форма: Скачайте коммерческое предложение ">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form_input">
+                                    <div class="form_input_icon"><i class="fas fa-mobile-alt"></i></div>
+                                    <input type="hidden" name="name_product" value="<?php the_title(); ?>">
+                                    <div class="form_input_text"><input type="text" name="phone" placeholder="+380 (__) __ __ ___" required="" autocomplete="off"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="submit" name="submit" value="Скачать расчет" class="btn" id="download_promo" data-url="http://dolotex.xn----ctbjagkqt6f8d.xn--p1ai/wp-content/uploads/2018/05/press-1.pdf">
+                            </div>
+                        </div>
+                    </div>
+                </form>
             <?php }else{ ?>
                 <div class="product_item">
                     <div class="content">
@@ -150,6 +183,66 @@
             </article>
         </div>
     </section>
+    <?php if($post->post_type == 'sistem'){ ?>
+    <section id="sistem_product_list">
+        <div class="container">
+            <h2>Используемые материалы</h2>
+            <div class="row">
+                <div class="sistem_product_list_item_wrap">
+                    <a href="" class="sistem_product_list_item">
+                        <div class="sistem_product_list_img">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/sistem_product_list_item.png" alt="">
+                        </div>
+                        <div class="sistem_product_list_title">
+                            Клей Dolotex GS-9
+                        </div>
+                    </a>
+                </div>
+                <div class="sistem_product_list_item_wrap">
+                    <a href="" class="sistem_product_list_item">
+                        <div class="sistem_product_list_img">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/sistem_product_list_item.png" alt="">
+                        </div>
+                        <div class="sistem_product_list_title">
+                            Клей Dolotex GS-9
+                        </div>
+                    </a>
+                </div>
+                <div class="sistem_product_list_item_wrap">
+                    <a href="" class="sistem_product_list_item">
+                        <div class="sistem_product_list_img">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/sistem_product_list_item.png" alt="">
+                        </div>
+                        <div class="sistem_product_list_title">
+                            Клей Dolotex GS-9
+                        </div>
+                    </a>
+                </div>
+                <div class="sistem_product_list_item_wrap">
+                    <a href="" class="sistem_product_list_item">
+                        <div class="sistem_product_list_img">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/sistem_product_list_item.png" alt="">
+                        </div>
+                        <div class="sistem_product_list_title">
+                            Клей Dolotex GS-9
+                            Клей Dolotex GS-9
+                        </div>
+                    </a>
+                </div>
+                <div class="sistem_product_list_item_wrap">
+                    <a href="" class="sistem_product_list_item">
+                        <div class="sistem_product_list_img">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/sistem_product_list_item.png" alt="">
+                        </div>
+                        <div class="sistem_product_list_title">
+                            Клей Dolotex GS-9
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php } ?>
     <?php if($kdv_tovar_title_video && $kdv_tovar_url_video){ ?>
     <section id="product_video">
         <div class="container">

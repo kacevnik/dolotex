@@ -31,7 +31,7 @@
 
       //Иницилизация и отправка плагина AjaxForm отправки даных из форм
       $('form').ajaxForm(function(){
-        //$("a[title='Close']").trigger("click");
+        $("a[title='Close']").trigger("click");
         $('form').clearForm();
         $(".fancybox-close-small").trigger("click");
         $("#thanks_link").trigger("click");
@@ -40,6 +40,12 @@
       $('#douwload_price').click(function(event) {
         if($('.form_pdf input[name="phone"]').val() != '' && $('.form_pdf input[name="phone"]').val() != ' '){
           window.open(GlobalDATA.kdv_price);
+        }
+      });
+
+      $('#download_promo').click(function(event) {
+        if($('.form_pdf input[name="phone"]').val() != '' && $('.form_pdf input[name="phone"]').val() != ' '){
+          window.open($(this).attr('data-url'));
         }
       });
 
@@ -150,6 +156,16 @@
          $('.hamburger').addClass('is-active');
       }).bind('close:finish', function(){
          $('.hamburger').removeClass('is-active');
+      });
+
+      //Плавная прокрутка до заданного ID элемента
+      $("a[href*='#']").bind("click", function(e){
+          var anchor = $(this);
+          $('html, body').stop().animate({
+              scrollTop: $(anchor.attr('href')).offset().top
+          }, 500);
+          e.preventDefault();
+          return false;
       });
       
    });

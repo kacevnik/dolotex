@@ -1686,6 +1686,87 @@ Reload plagins style
     padding: 0;
 }
 
+.sistem_product{
+    position: relative;
+}
+
+.sistem_product_more{
+    color: #fff;
+    background: #bc0000;
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 40px;
+    text-align: center;
+    line-height: 54px;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    margin-left: -25px;
+}
+
+.sistem_product_more:hover, .sistem_product_more:focus, .sistem_product_more:active{
+    color: #fff;
+}
+
+.form.sistem_product_form{
+    background: #f9f9f9;
+}
+
+.form.sistem_product_form h3{
+    color: #000000;
+}
+
+.form.sistem_product_form .form_input{
+    background: #fff;
+}
+
+.form.sistem_product_form .form_input input{
+    background: #fff;
+}
+
+.form.sistem_product_form .btn{
+    font-size: 18px;
+    width: 100%;
+    padding: 11px;
+}
+
+#sistem_product_list{
+    background: #636363 url(../img/sistem_product_list_bg.png)no-repeat center center;
+    padding: 90px 0;
+}
+
+#sistem_product_list h2{
+    margin: 0 0 80px 0;
+    color: #ffffff;
+}
+
+.sistem_product_list_item_wrap{
+    width: 20%;
+    float: left;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.sistem_product_list_item{
+    color: #ffffff;
+}
+
+.sistem_product_list_item:hover{
+    color: #ffffff;
+}
+
+.sistem_product_list_img img{
+    width: 100%
+}
+
+.sistem_product_list_title{
+    margin-top: 30px;
+    font-size: 20px;
+}
+
 
 
 
