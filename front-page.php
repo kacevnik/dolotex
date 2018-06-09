@@ -112,9 +112,9 @@
                 foreach ($wp_query_sistem as $posts_sistem_item) {
             ?>
             <div class="obj_check_item<?php echo ($count_posts_sistem_item & 1) ? ' odd' : ' even' ?>">
-              <div class="obj_check_item_img">
+              <a class="obj_check_item_img" href="<?php echo get_the_permalink($posts_sistem_item->ID); ?>">
                 <?php echo get_the_post_thumbnail( $posts_sistem_item->ID, 'project-thumb' ); ?>
-            </div>
+              </a>
               <div class="obj_check_item_content">
                 <h5><?php echo $posts_sistem_item->post_title; ?></h5>
                 <p>
@@ -126,8 +126,13 @@
                     }
                 ?>
                 <span><i class="fas fa-arrows-alt-v"></i><?php echo $kdv_sistem_aq; ?></span>
-                <div class="obj_check_item_btn"><a href="<?php echo get_the_permalink($posts_sistem_item->ID); ?>" class="btn"><i class="fas fa-file-alt"></i>Расчет стоимости</a></div>
-              </div>
+                <div class="obj_check_item_btn">
+                  <a href="<?php echo get_the_permalink($posts_sistem_item->ID); ?>" class="btn">
+                    <i class="fas fa-file-alt"></i>
+                    Расчет стоимости
+                  </a>
+                </div><!-- .obj_check_item_btn -->
+              </div><!-- .obj_check_item_content -->
             </div>
             <?php $count_posts_sistem_item++; } ?>
           </div>
