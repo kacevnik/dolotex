@@ -118,7 +118,7 @@
               <div class="obj_check_item_content">
                 <h5><?php echo $posts_sistem_item->post_title; ?></h5>
                 <p>
-                  <?php echo wp_trim_words($posts_sistem_item->post_content, 20, '...');; ?>
+                  <?php echo wp_trim_words(get_the_excerpt($posts_sistem_item->ID), 20, '...'); ?>
                 </p>
                 <?php
                     if (defined( 'FW' )){

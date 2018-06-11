@@ -9,6 +9,7 @@
         $kdv_tovar_title_video  = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_title_video');
         $kdv_tovar_url_video    = fw_get_db_post_option(get_the_ID(), 'kdv_tovar_url_video');
         $dolotex_sistem_promo   = fw_get_db_post_option(get_the_ID(), 'dolotex_sistem_promo');
+        $kdv_sistem_more        = fw_get_db_post_option(get_the_ID(), 'kdv_sistem_more');
 
         $kdv_on_line_name       = fw_get_db_settings_option('kdv_on_line_name');
         $kdv_on_line_dolg       = fw_get_db_settings_option('kdv_on_line_dolg');
@@ -18,6 +19,7 @@
 
 
         $arr_kdv_tovar_more     = array();
+        $arr_kdv_sistem_more    = array();
 
         function f_array($arr){
             global $arr_kdv_tovar_more;
@@ -34,6 +36,21 @@
 
         f_array($kdv_tovar_more);
 
+        function s_array($arr){
+            global $arr_kdv_sistem_more;
+            foreach($arr as $key => $value){
+                if (is_array($value)){
+                    s_array($value);
+                }else{
+                    if($value == 1){
+                        $arr_kdv_sistem_more[] = $key;
+                    }
+                }
+            }
+        }
+
+        s_array($kdv_sistem_more);
+
     }
 
 ?>
@@ -43,6 +60,10 @@
             <?php if($post->post_type == 'tovar'){ ?>
             <div class="breadcrumbs bold_500">
                 <span><a href="<?php echo get_home_url(); ?>">Главная</a></span> / <span><?php echo get_the_term_list( $post->ID, 'cat_tovar', '', ',', '' ); ?></span> / <span class="kb_title"><?php echo $post->post_title; ?></span>
+            </div>
+            <?php }elseif($post->post_type == 'sistem'){ ?>
+            <div class="breadcrumbs bold_500">
+                <span><a href="<?php echo get_home_url(); ?>">Главная</a></span> / <span><?php echo get_the_term_list( $post->ID, 'cat_sistem', '', ',', '' ); ?></span> / <span class="kb_title"><?php echo $post->post_title; ?></span>
             </div>
             <?php }else{ ?>
             <div class="breadcrumbs bold_500">
@@ -184,8 +205,74 @@
             </article>
         </div>
     </section>
-    <?php if($post->post_type == 'sistem'){ ?>
+    <?php 
+        if($post->post_type == 'sistem'){ 
+            if($arr_kdv_sistem_more){
+                $style_1        = '';
+                $content_before = '';
+                $content_after  = '';
+                //print_r($arr_kdv_sistem_more);
+                $more_sistem = query_posts(array( 'post_type' => 'tovar', 'post__in' => $arr_kdv_sistem_more ));
+                if(count($arr_kdv_sistem_more) == 1){
+                    $style_1 = ' style="width: 20%;"';
+                    $content_before = '<div class="sistem_product_list_item_wrap"' . $style_1 .'></div><div class="sistem_product_list_item_wrap"' . $style_1 .'></div>';
+                    $content_after  = '<div class="sistem_product_list_item_wrap"' . $style_1 .'></div><div class="sistem_product_list_item_wrap"' . $style_1 .'></div>';
+                }
+                if(count($arr_kdv_sistem_more) == 2){
+                    $style_1 = ' style="width: 20%;"';
+                    $style_2 = ' style="width: 30%;"';
+                    $content_before = '<div class="sistem_product_list_item_wrap"' . $style_2 .'></div>';
+                    $content_after  = '<div class="sistem_product_list_item_wrap"' . $style_2 .'></div>';
+                }
+
+                if(count($arr_kdv_sistem_more) == 3){
+                    $style_1 = ' style="width: 20%;"';
+                    $content_before = '<div class="sistem_product_list_item_wrap"' . $style_1 .'></div>';
+                    $content_after  = '<div class="sistem_product_list_item_wrap"' . $style_1 .'></div>';
+                }
+
+                if(count($arr_kdv_sistem_more) == 4){
+                    $style_1 = ' style="width: 20%;"';
+                    $style_2 = ' style="width: 10%;"';
+                    $content_before = '<div class="sistem_product_list_item_wrap"' . $style_2 .'></div>';
+                    $content_after  = '<div class="sistem_product_list_item_wrap"' . $style_2 .'></div>';
+                }
+
+                if(count($arr_kdv_sistem_more) == 5){
+                    $style_1 = ' style="width: 20%;"';
+                    $content_before = '';
+                    $content_after = '';
+                }
+
+                if(count($arr_kdv_sistem_more) == 6){
+                    $style_1 = ' style="width: 16.666%;"';
+                    $content_before = '';
+                    $content_after = '';
+                }
+    ?>
     <section id="sistem_product_list">
+        <div class="container">
+            <h2>Используемые материалы</h2>
+            <div class="row">
+                <?php echo $content_before; ?>
+                <?php foreach($more_sistem as $more_sistem_item){ ?>
+                <div class="sistem_product_list_item_wrap"<?php echo $style_1; ?>>
+                    <a href="<?php echo get_permalink( $more_sistem_item -> ID ); ?>" class="sistem_product_list_item">
+                        <div class="sistem_product_list_img">
+                            <?php echo get_the_post_thumbnail( $more_sistem_item -> ID, 'tovar-thumb'); ?>
+                        </div>
+                        <div class="sistem_product_list_title">
+                            <?php echo $more_sistem_item -> post_title; ?>
+                        </div>
+                    </a>
+                </div>
+                <?php } ?>
+                <?php echo $content_after; ?>
+            </div>
+        </div>
+    </section>
+    <?php }else{ ?>
+        <section id="sistem_product_list">
         <div class="container">
             <h2>Используемые материалы</h2>
             <div class="row">
@@ -243,7 +330,7 @@
             </div>
         </div>
     </section>
-    <?php } ?>
+    <?php }} ?>
     <?php if($kdv_tovar_title_video && $kdv_tovar_url_video){ ?>
     <section id="product_video">
         <div class="container">
