@@ -70,7 +70,7 @@
          $('[name="name_product"]').val($(this).parent().parent().find('[data-name-product]').html());
       });
 
-      $('[name="phone"]').inputmask("+380 (99) 99 99 999");
+      $('[name="phone"]').inputmask("+7 (99) 99 99 999");
 
       $(".client_slider").owlCarousel({
           loop:true,

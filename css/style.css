@@ -1768,6 +1768,14 @@ Reload plagins style
     font-size: 20px;
 }
 
+.sub_cat_title{
+    margin-bottom: 30px;
+}
+
+.sub_cat_title a{
+    color: #bc0000;
+}
+
 
 
 
