@@ -1,7 +1,11 @@
 <?php
 include('settings.php');
-register_nav_menus(array( // Регистрация меню
+register_nav_menus(array( // Регистрация меню main
     'top' => 'Главное меню',
+));
+
+register_nav_menus(array( // Регистрация меню moble
+    'mobile' => 'Меню мобильной версии',
 ));
 
 add_theme_support('post-thumbnails'); // Включение миниатюр

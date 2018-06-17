@@ -71,6 +71,7 @@
       });
 
       $('[name="phone"]').inputmask("+7 (99) 99 99 999");
+      $('[name="phone"]').attr("placeholder", "+7 (__) __ __ ___");
 
       $(".client_slider").owlCarousel({
           loop:true,
@@ -158,14 +159,14 @@
          $('.hamburger').removeClass('is-active');
       });
 
-      //Плавная прокрутка до заданного ID элемента
-      $("a[href*='#']").bind("click", function(e){
-          var anchor = $(this);
-          $('html, body').stop().animate({
-              scrollTop: $(anchor.attr('href')).offset().top
-          }, 500);
-          e.preventDefault();
-          return false;
+      //плавная прокрутка при клике на странице системы
+      $('.sistem_product_more').click(function(event) {
+        var anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $(anchor.attr('href')).offset().top
+        }, 500);
+        e.preventDefault();
+        return false;
       });
-      
+
    });

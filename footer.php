@@ -16,16 +16,16 @@
       </footer>
     </div>
     <?php
-        $args = array('theme_location' => 'top', 'container'=> 'nav', 'menu_class' => '', 'menu_id' => '', 'container_id' => 'mmenu');
+        $args = array('theme_location' => 'mobile', 'container'=> 'nav', 'menu_class' => '', 'menu_id' => '', 'container_id' => 'mmenu');
         wp_nav_menu($args);
     ?>
 
   <div id="call_back_hidden">
     <div class="form">
-      <h3>Укажите номер</h3>
-      <p>и наш специалист перезвонит Вам в течении 5 минут</p>
-      <div class="form_input">
-        <form method="post" action="<?php echo get_template_directory_uri(); ?>/send.php">
+      <form method="post" action="<?php echo get_template_directory_uri(); ?>/send.php">
+        <h3>Укажите номер</h3>
+        <p>и наш специалист перезвонит Вам в течении 5 минут</p>
+        <div class="form_input">
           <input type="hidden" name="form" value="Форма заказа обратного звонка">
           <div class="form_input_icon"><i class="fas fa-mobile-alt"></i></div>
           <div class="form_input_text"><input type="text" name="phone" placeholder="+380 (__) __ __ ___" required="" autocomplete="off"></div>

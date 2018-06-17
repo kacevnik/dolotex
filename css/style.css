@@ -290,7 +290,7 @@ h2{
 }
 
 .phone_number{
-    font-size: 30px;
+    font-size: 28px;
     font-family: 'Museo300';
 }
 
@@ -910,6 +910,7 @@ footer .hot_phone{
 
 .catalog_item_img img{
     width: 100%;
+    height: auto;
 }
 
 .catalog_item_content{
@@ -1774,6 +1775,10 @@ Reload plagins style
 
 .sub_cat_title a{
     color: #bc0000;
+}
+
+.sistem_product_list_img img{
+    height: auto;
 }
 
 
